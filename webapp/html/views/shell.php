@@ -16,8 +16,7 @@ $content = 'No content in page.';
     <!--meta tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="Lecturing Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
-      Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <meta name="keywords" content="Clinique, Saint-Victor, Massotherapie, Melanie Plante, Carl Giguere" />
     <script>
       addEventListener("load", function () {
       	setTimeout(hideURLbar, 0);
