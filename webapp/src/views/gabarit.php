@@ -1,5 +1,6 @@
 <html>
     <head>
+      <title>Carl & Mélanie Massothérapie - <?php echo $title; ?></title>
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
       <link href="css/font-awesome.min.css" rel="stylesheet">
       <link href="css/style.css" rel='stylesheet' type='text/css' media="all">
@@ -10,7 +11,7 @@
 
 <body>
 <!--header-->
-<div class="<?php if($onHomePage) echo 'main-top'; else echo 'header-outs inner_page-banner'; ?>" id="home">
+<div class="header-outs inner_page-banner" id="home">
   <div class="headder-top">
     <!-- nav -->
     <nav >
@@ -21,7 +22,7 @@
       <input type="checkbox" id="drop">
       <ul class="menu mt-2">
         <li class="active"><a href="index.php?action=home">Accueil</a></li>
-        <li class="mx-lg-3 mx-md-2 my-md-0 my-1"><a href="index.php?action=about">About</a></li>
+        <li class="mx-lg-3 mx-md-2 my-md-0 my-1"><a href="index.php?action=about">À propos</a></li>
         <li>
           <!-- First Tier Drop Down -->
           <label for="drop-2" class="toggle toogle-2">Dropdown <span class="fa fa-angle-down" aria-hidden="true"></span>
@@ -33,16 +34,13 @@
             <li><a href="index.php?action=blog" class="drop-text">Blog</a></li>
           </ul>
         </li>
-        <li><a href="index.php?action=contact">Contact Us</a></li>
         <?php
-        if(!isset($_SESSION['username'])){
-          ?>
-          <li><a href="index.php?action=login">Connexion</a></li>
-          <li><a href="index.php?action=inscription">Inscription</a></li>
+        if (!isset($_SESSION['username'])) {
+            ?>
+          <li><a href="index.php?action=login">Espace Client</a></li>
           <?php
-        }
-        else
-        { ?>
+        } else {
+            ?>
         <li>
           <label for="drop-3" class="toggle toogle-2"> <?php echo $_SESSION['username']; ?> <span class="fa fa-angle-down" aria-hidden="true"></span>
         </label>
@@ -59,9 +57,9 @@
       </ul>
     </nav>
     <!-- //nav -->
-    <?php 
-      if($onHomePage){
-        ?>
+    <?php
+      if ($onHomePage) {
+          ?>
     <div class="main-banner text-center">
       <div class="container">
        <div class="style-banner ">
@@ -80,17 +78,14 @@
     <?php
       }
         ?>
-
-
-</div>
+  </div>
 <!-- //banner -->
   </div>
-</div>
 <!--//header-->
 
 
-    <div class=""> 
-		<?php echo $contenu ?>   		
+    <div class="">
+		<?php echo $contenu ?>
 	</div>
 </div>
 
@@ -108,9 +103,8 @@
               <h4>Contactez-nous</h4>
             </li>
             <li>
-              <p>225, rue Principale, </p>
-              <p>Saint-Victor-de-Beauce, G0M 2B0
-              <p>(Qc) CANADA</p>
+              <p>225, rue Principale, Saint-Victor-de-Beauce, </p>
+              <p>(QC) G0M 2B0</p>
             </li>
           </ul>
         </div>
@@ -137,18 +131,6 @@
         </div>
       </div>
       <div class="footer-info-bottom col-lg-6 col-md-6">
-        <h4 class="pb-lg-4 pb-md-3 pb-3">NewsLetter</h4>
-        <div class="newsletter">
-          <form action="#" method="post" class="d-flex">
-            <input type="email" name="Your Email" class="form-control" placeholder="Your Email" required="">
-            <button class="btn1">
-            <span class="fa fa-envelope" aria-hidden="true"></span>
-            </button>
-          </form>
-        </div>
-        <div class="footer-office-hour mt-3">
-          <p>vehicula velit sagittis vehicula. Duis posuere ex in mollis iaculis. Suspendisse tincidunt velit sagittis vehicula</p>
-        </div>
         <div class="icons mt-3 ">
           <ul>
             <li><a href="www.fb.com/898434873569060/"><span class="fa fa-facebook"></span></a></li>

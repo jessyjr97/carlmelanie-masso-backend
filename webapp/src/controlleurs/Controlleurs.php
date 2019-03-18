@@ -1,6 +1,6 @@
-<?php 
+<?php
 session_start();
-require('Models/ManagerUsers.php');
+require('models/ManagerUsers.php');
 
 function Login(){
     if(!empty($_POST)){
@@ -18,12 +18,12 @@ function Login(){
         {
             $user->closeCursor();
             $contenu = ob_get_clean();
-            require('Views/login.php');
+            require('views/login.php');
         }
     }
     else
     {
-        require('Views/login.php');
+        require('views/login.php');
     }
 }
 
