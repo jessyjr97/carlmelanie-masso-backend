@@ -1,21 +1,17 @@
 <!-- banner -->
-<div class="main-banner text-center">
-   <div class="container">
-      <div class="style-banner ">
-         <h4 class="mb-lg-3 mb-2">Practice Makes You Better</h4>
-         <h5>Its Time To Master Your Skills
-         </h5>
-      </div>
-      <div class="two-demo-button mt-lg-5 mt-md-4 mt-3">
-         <p> Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</p>
-      </div>
-      <div class="view-buttn mt-md-4 mt-sm-4 mt-3">
-         <a href="about.html" class="btn">About Us</a>
-      </div>
-   </div>
+<?php
+$titre = 'Accueil';
+ ob_start(); ?>
+ <!-- short -->
+<div class="using-border py-3">
+  <div class="inner_breadcrumb  ml-4">
+    <ul class="short_ls">
+      
+    </ul>
+  </div>
 </div>
-</div>
-<!-- //banner -->
+<!-- //short-->
+
 <!-- about -->
 <section class="about py-lg-4 py-md-3 py-sm-3 py-3" id="about">
 <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
@@ -170,4 +166,8 @@
    </div>
 </div>
 </section>
+
+<?php $contenu = ob_get_clean(); 
+$onHomePage = true;
+ require 'gabarit.php'; ?>
 <!--//information -->

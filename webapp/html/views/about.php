@@ -1,8 +1,15 @@
-
-    <!--about-->
-    <!--about-one-->
+<?php
+$titre = 'Connection';
+ ob_start(); ?>
     <section class="about-inner py-lg-4 py-md-3 py-sm-3 py-3">
       <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
+        <?php
+        if(isset($_SESSION['username'])){
+          ?> <h4 class="text-center mb-md-4 mb-sm-3 mb-3 mb-2"> <?php
+          echo 'Bienvenue, ' . $_SESSION['username'] ;
+          ?> </h4> <?php
+        }
+        ?>
         <h3 class="title text-center mb-md-4 mb-sm-3 mb-3 mb-2">About Us</h3>
         <div class="title-wls-text text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et Lorem ipsum </p>
@@ -132,4 +139,6 @@
         </div>
       </div>
     </section>
-    <!--//team -->
+<?php $contenu = ob_get_clean(); 
+$onHomePage = false;
+require 'gabarit.php'; ?>
