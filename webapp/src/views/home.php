@@ -53,13 +53,14 @@
            <?php
          }
          ?>
+         <li class="mx-lg-3 mx-md-2 my-md-0 my-1"><a href="?action=home&setLocale=en">En</a></li>
        </ul>
      </nav>
      <!-- //nav -->
      <div class="main-banner text-center">
        <div class="container">
         <div class="style-banner ">
-          <h4 class="mb-lg-3 mb-2">Prenez rendez-vous dès aujourd'hui!</h4>
+          <h4 class="mb-lg-3 mb-2"><?php echo localize('Welcome Message'); ?></h4>
           <h5>À partir de x$</h5>
          </div>
        <div class="two-demo-button mt-lg-5 mt-md-4 mt-3">
