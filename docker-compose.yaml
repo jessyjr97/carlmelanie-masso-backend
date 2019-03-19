@@ -8,5 +8,9 @@ services:
         ports:
         - "80:80"
         - "443:443"
+        volumes:
+        - type: bind
+          source: ./webapp/src
+          target: /var/www/html
     webapi:
         image: alpine:3.9
