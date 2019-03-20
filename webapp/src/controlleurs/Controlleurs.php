@@ -2,58 +2,49 @@
 session_start();
 require('models/ManagerUsers.php');
 
+$default_locale = 'fr';
+
 if (!isset($_SESSION['locale'])) {
-    $_SESSION['locale'] = 'fr';
+    $_SESSION['locale'] = $default_locale;
 }
 
 if (isset($_GET['setLocale'])) {
-    $_SESSION['locale'] = $_GET['setLocale']; //if the user change language
+    $_SESSION['locale'] = $_GET['setLocale'];
 }
 
 function localize($phrase)
 {
-    $translatedPhrase = getTranslated($phrase, $_SESSION['locale']);
-    if ($translatedPhrase) {
-        return $translatedPhrase;
+    global $default_locale;
+    static $translations = null;
+    if (is_null($translations)) {
+        $translations = getLocaleFile($_SESSION['locale']);
+    }
+    if ($translations[$phrase]) {
+        return $translations[$phrase];
     } else {
-        $translatedPhrase = getUntranslated($phrase, 'default');
-        if ($translatedPhrase) {
-            //Raise error not translated in locale
-            return $translatedPhrase;
+        static $default_translations = null;
+        if (is_null($default_translations)) {
+            $default_translations = getLocaleFile($default_locale);
+        }
+        if ($default_translations[$phrase]) {
+            return $default_translations[$phrase];
         } else {
-            // Raise Error not declared
+            //Raise Error word not defined
             return $phrase;
         }
     }
 }
 
-function getTranslated($phrase, $locale)
+function getLocaleFile($locale)
 {
-    static $translations = null;
-    if (is_null($translations)) {
-        $lang_file = 'lang/' . $locale . '.json';
-        if (!file_exists($lang_file)) {
-            $lang_file = 'lang/' . 'fr.json';
-        }
-        $lang_file_content = file_get_contents($lang_file);
-        $translations = json_decode($lang_file_content, true);
+    global $default_locale;
+    $lang_file = 'lang/' . $locale . '.json';
+    if (!file_exists($lang_file)) {
+        //Raise error locale not found
+        $lang_file = 'lang/' . $default_locale . '.json';
     }
-    return $translations[$phrase];
-}
-
-function getUntranslated($phrase){
-  static $translations = null;
-  if (is_null($translations)) {
-      $lang_file = 'lang/fr.json';
-      if (file_exists($lang_file)) {
-        $lang_file_content = file_get_contents($lang_file);
-        $translations = json_decode($lang_file_content, true);
-      } else {
-        //Raise Fatal Error
-        return $phrase;
-      }
-  }
-  return $translations[$phrase];
+    $lang_file_content = file_get_contents($lang_file);
+    return json_decode($lang_file_content, true);
 }
 
 function Login()

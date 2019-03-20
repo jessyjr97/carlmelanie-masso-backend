@@ -1,3 +1,16 @@
 {
-  "Welcome Message":"Prenez un rendez-vous dès aujourd'hui!"
+  "_comment": "--==HOMEPAGE==--",
+  "CompanyName": "Carl & Mélanie Orthothérapie",
+  "HomepageName": "Accueil",
+  "Menu": "Menu",
+  "About": "À propos",
+  "MyAccount": "Mon compte",
+  "ManageAccount": "Gérer mon compte",
+  "Logout": "Se déconnecter",
+  "_comment": "--==HEADER==--",
+  "HomepageButton": "Inscrivez-vous",
+  "HomepageMessage": "Prenez un rendez-vous dès aujourd'hui!",
+  "HomepageMessageBold": "À partir de x$",
+  "HomepageMessageDetails": "Des conditions s'appliques.",
+  "CustomerSpace": "Espace Client"
 }
