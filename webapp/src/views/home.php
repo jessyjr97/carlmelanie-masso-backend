@@ -22,17 +22,6 @@
        <ul class="menu mt-2">
          <li class="active"><a href="index.php?action=home"><?php echo localize('HomepageName'); ?></a></li>
          <li class="mx-lg-3 mx-md-2 my-md-0 my-1"><a href="index.php?action=about"><?php echo localize('About'); ?></a></li>
-         <li>
-           <!-- First Tier Drop Down -->
-           <label for="drop-2" class="toggle toogle-2">Dropdown <span class="fa fa-angle-down" aria-hidden="true"></span>
-           </label>
-           <a href="#">Dropdown <span class="fa fa-angle-down" aria-hidden="true"></span></a>
-           <input type="checkbox" id="drop-2">
-           <ul>
-             <li><a href="index.php?action=gallery" class="drop-text">Gallery</a></li>
-             <li><a href="index.php?action=blog" class="drop-text">Blog</a></li>
-           </ul>
-         </li>
          <?php
          if (!isset($_SESSION['username'])) {
              ?>
