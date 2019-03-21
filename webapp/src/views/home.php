@@ -15,7 +15,7 @@
     <header class="main-top" id="home">
       <div class="headder-top">
         <div style="display: inline" id="logo">
-          <img src="images/completeLogo.svg" alt="Carl et Mélanie Massothérapie" />
+          <img src="images/completeLogo.svg" alt="Carl et Mélanie Orthothérapie" />
         </div>
         <nav style="display: inline">
           <label for="drop" class="toggle"><?php echo localize('Header-Menu'); ?></label>
