@@ -44,8 +44,8 @@ $titre = 'Connection';
           <div class="col-lg-6 col-md-6 col-sm-6 counter-number">
             <div class="row text-center">
               <div class="col-lg-6 col-md-6 col-sm-6 number-w3three-info ">
-                <h5><?php echo localize('About-Stats-Certs-Count'); ?></h5>
-                <h6 class="pt-2"><?php echo localize('About-Stats-Certs-Text'); ?></h6>
+                <h5><?php echo localize('About-Stats-Diplomas-Count'); ?></h5>
+                <h6 class="pt-2"><?php echo localize('About-Stats-Diplomas-Text'); ?></h6>
               </div>
               <div class="col-lg-6 col-md-6 col-sm-6 number-w3three-info">
                 <h5><?php echo localize('About-Stats-Customers-Count'); ?></h5>
