@@ -232,9 +232,10 @@ nav ul li {
 
 nav ul li a {
   color: #fff;
+  text-shadow: -2px 0 #444, 0 2px #444, 2px 0 #444, 0 -2px #444;
   text-transform: capitalize;
-  font-weight: 400;
-  font-size: 14px;
+  font-weight: bold;
+  font-size: 18px;
   letter-spacing: 1px;
   background: transparent;
   padding: 7px 20px;
@@ -310,7 +311,7 @@ nav ul ul li a {
 }
 
 
-/* Second, Third and more Tiers	
+/* Second, Third and more Tiers
 * We move the 2nd and 3rd etc tier dropdowns to the left
 * by the amount of the width of the first tier.
 */
@@ -443,7 +444,7 @@ a.reqe-button {
     color: #FFF;
     font-size: 15px;
   }
-  /* 
+  /*
 nav ul li ul li .toggle,
 nav ul ul a {
 background-color: #212121;
@@ -509,11 +510,12 @@ background-color: #212121;
 .main-top {
   background: url(../images/b3.jpg) no-repeat;
   background-size: cover;
+  background-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   -ms-background-size: cover;
-  min-height: 800px;
+  height: 100%;
 }
 
 .headder-top {
