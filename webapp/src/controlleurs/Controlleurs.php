@@ -1,6 +1,7 @@
 <?php
 session_start();
 require('models/ManagerUsers.php');
+require('models/Customer.php');
 
 $default_locale = 'fr';
 
@@ -85,4 +86,12 @@ function Schedule()
 function About()
 {
     require('views/about.php');
+}
+
+function Api()
+{
+    $customer = array('H','Yannick','Jacques','2019-08-31','developper','1');
+
+    require('services/callApiExtension.php');
+    echo CallAPI('PUT','Customers/AddNew/',$customer );
 }

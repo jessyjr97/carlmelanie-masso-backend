@@ -27,6 +27,8 @@ try
             session_destroy();
             Home();
             break;
+        case 'api' :
+            Api();
         default :
             Home();
             break;
