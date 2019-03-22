@@ -22,7 +22,7 @@ $titre = 'Connection';
             } ?>">
             </div>
             <div class="form-group contact-forms">
-              <label for="password"><h4>Mot De Passe</h4></label>
+              <label for="password"><h4>Mot de passe</h4></label>
               <input type="password" name="password" id="password" class="form-control" placeholder="Mot de passe" required="">
             </div>
             <button type="submit" class="btn sent-butnn">Connection</button>

@@ -16,8 +16,8 @@ try
         case 'about':
             About();
             break;
-        case 'inscription':
-            Inscription();
+        case 'personnalinformation':
+            PersonnalInformation();
             break;
         case 'schedule':
             Schedule();
@@ -34,12 +34,16 @@ try
             break;
         }
     }
-    else {
+    else if(isset($_POST['email'])){
+        CheckEmailInUse();
+    }
+    else
+    {
     Home();
     }
 }
 catch (PDOException $e) {
     $msgErreur = $e->getMessage();
-    require 'view/vueErreur.php';
+    require 'views/vueErreur.php';
 }
 ?>
