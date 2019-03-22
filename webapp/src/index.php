@@ -26,13 +26,17 @@ try
             unset($_SESSION['userid']);
             Home();
             break;
-        case 'api' :
-            Api();
         case 'report-bug' :
             ReportBug();
             break;
         case 'send_bug' :
             SendBug();
+            break;
+        case 'appointmentCreator' :
+            AppointmentCreator();
+            break;
+        case 'customers' :
+            Customers();
             break;
         default :
             Home();

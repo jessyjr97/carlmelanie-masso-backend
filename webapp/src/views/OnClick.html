@@ -1,0 +1,26 @@
+<style>
+    .row:hover
+    {
+        background-color:#e3fee0;
+        cursor:pointer;
+    }
+    .col-sm
+    {
+        border:.3px solid;
+    }
+    span:hover
+    {
+        background-color:#dbfdd7;
+        color:white;
+        cursor:pointer;
+    }
+</style>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.row').click(function () {
+            //get le id de l'objet cliqué et envoyer à appointment creator
+            alert($(this).text())
+        });
+    });
+</script>
+

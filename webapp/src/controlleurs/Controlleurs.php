@@ -280,3 +280,12 @@ function Api()
   /* CallAPI("DELETE","Customers/4");
   echo  CallAPI("GET","Customers");*/
 }
+
+function AppointmentCreator()
+{
+    require('views/appointment_creator.php');
+}
+function Customers()
+{
+    require('views/customers.php');
+}

@@ -32,12 +32,16 @@
             <li class="mx-lg-3 mx-md-2 my-md-0 my-1">
               <a href="index.php?action=about"><?php echo localize('PageTitle-About'); ?></a>
             </li>
+              <li>
+                  <a href="?action=appointmentCreator"><?php echo localize('PageTitle-AppointmentCreator'); ?></a>
+              </li>
             <?php
               if (!isset($_SESSION['username'])) {
             ?>
             <li>
               <a href="index.php?action=login"><?php echo localize('PageTitle-Login'); ?></a>
             </li>
+
             <?php
               } else {
             ?>
