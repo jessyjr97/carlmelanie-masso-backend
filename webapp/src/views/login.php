@@ -3,7 +3,7 @@ $titre = 'Connection';
  ob_start(); ?>
  <section class="contact py-lg-4 py-md-3 py-sm-3 py-3">
   <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
-    <h3 class="title text-center mb-md-4 mb-sm-3 mb-3 mb-2">Connexion</h3>
+    <h3 class="title text-center mb-md-4 mb-sm-3 mb-3 mb-2"><?php echo Localize('Login-Title');?></h3>
     <?php
         if (isset($_POST['email'])){
             ?>
@@ -16,25 +16,25 @@ $titre = 'Connection';
         <form action="index.php?action=login" method="post">
           <div class="w3pvt-wls-contact-mid">
             <div class="form-group contact-forms">
-                <label for="email"><h4>Adresse Courriel</h4></label>
+                <label for="email"><h4><?php echo Localize('Login-Email');?></h4></label>
               <input type="email" id="email" name="email" class="form-control" placeholder="Adresse courriel" value="<?php if (isset($_POST['email'])){
                 echo $_POST['email'];
             } ?>">
             </div>
             <div class="form-group contact-forms">
-              <label for="password"><h4>Mot de passe</h4></label>
+              <label for="password"><h4><?php echo Localize('Login-Password');?></h4></label>
               <input type="password" name="password" id="password" class="form-control" placeholder="Mot de passe" required="">
             </div>
-            <button type="submit" class="btn sent-butnn">Connection</button>
+            <button type="submit" class="btn sent-butnn"><?php echo Localize('Login-Title');?></button>
           </div>
         </form>
       </div>
       <div class="col-lg-6 col-md-6 ">
         <div >
-          <h4>Vous n'êtes pas client?</h4>
+          <h4><?php echo Localize('Login-NotRegistered');?>?</h4>
         </div>
         <div class=" mt-3">
-        <a href="index.php?action=inscription"><h4>Inscrivez vous!</h4></a>
+        <a href="index.php?action=inscription"><h4><?php echo Localize('Login-Register');?>!</h4></a>
         </div>
       </div>
     </div>

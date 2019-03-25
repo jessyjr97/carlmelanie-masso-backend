@@ -54,7 +54,7 @@
                 </li>
                 <li>
                   <a href="index.php?action=logout" class="drop-text">
-                    <?php echo localize('Action-Logout'); ?>
+                    <?php echo localize('Header-Logout'); ?>
                   </a>
                 </li>
               </ul>
