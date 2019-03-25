@@ -1,25 +1,25 @@
 <?php
-$titre = 'Inscription';
+$titre = localize('Personnal-Title');
  ob_start(); ?>
 
 <section class="contact py-lg-4 py-md-3 py-sm-3 py-3">
   <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
-    <h3 class="title text-center mb-md-4 mb-sm-3 mb-3 mb-2">Informations personnelles</h3>
+    <h3 class="title text-center mb-md-4 mb-sm-3 mb-3 mb-2"><?php echo localize('Personnal-Title');?></h3>
     <div class="row w3pvt-info-para pt-lg-5 pt-md-4 pt-3">
       <div class="col-lg-10 col-md-10">
         <form action="index.php?action=personnalinformation" id="personnalinformation" method="post">
           <div class="w3pvt-wls-contact-mid">
           <div class="form-group contact-forms">
-              <label for="address"><h4>Addresse</h4></label>
-              <input type="text" name="address" id="address" class="form-control" placeholder="Addresse" required="">
+              <label for="address"><h4><?php echo localize('Personnal-Address');?></h4></label>
+              <input type="text" name="address" id="address" class="form-control" placeholder="<?php echo localize('Personnal-Address');?>">
             </div>
             <div class="form-row">
                 <div class="form-group contact-forms col-md-4">
-                    <label for="city"><h4>Ville</h4></label>
-                    <input type="text" name="city" id="city" class="form-control" placeholder="Ville">
+                    <label for="city"><h4><?php echo localize('Personnal-City');?></h4></label>
+                    <input type="text" name="city" id="city" class="form-control" placeholder="<?php echo localize('Personnal-City');?>">
                 </div>
                 <div class="form-group contact-forms col-md-4">
-                    <label for="province"><h4>Province</h4></label>
+                    <label for="province"><h4><?php echo localize('Personnal-Province');?></h4></label>
                     <select name="province" id="province">
                     <option value=""></option>
                     <?php 
@@ -31,32 +31,32 @@ $titre = 'Inscription';
                     </select>
                 </div>
                 <div class="form-group contact-forms col-md-4">
-                    <label for="zipcode"><h4>Code postal</h4></label>
-                    <input type="text" name="zipcode" id="zipcode" class="form-control" placeholder="Code postal">
+                    <label for="zipcode"><h4><?php echo localize('Personnal-Zip');?></h4></label>
+                    <input type="text" name="zipcode" id="zipcode" class="form-control" placeholder="<?php echo localize('Personnal-Zip');?>">
                 </div>
             </div>
             
          <div class="form-row">   
                 <div class="form-group contact-forms date col-md-4">
-                    <label for="dateofbirth"><h4>Date de naissance</h4></label>
+                    <label for="dateofbirth"><h4><?php echo localize('Personnal-DateOfBirth');?></h4></label>
                     <input type="date" name="dateofbirth" id="dateofbirth" class="datepicker">
                 </div>
                 <div class="form-group contact-forms col-md-8">
-                    <label for="occupation"><h4>Occupation</h4></label>
-                    <input type="text" name="occupation" id="occupation" class="form-control" placeholder="Occupation">
+                    <label for="occupation"><h4><?php echo localize('Personnal-Occupation');?></h4></label>
+                    <input type="text" name="occupation" id="occupation" class="form-control" placeholder="<?php echo localize('Personnal-Occupation');?>">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group contact-forms col-md-4">
-                    <label for="phone"><h4>Téléphone</h4></label>
+                    <label for="phone"><h4><?php echo localize('Personnal-Phone');?></h4></label>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group contact-forms col-md-4">
-                    <input type="text" name="phone1" id="phone1" class="form-control" placeholder="Téléphone">
+                    <input type="text" name="phone1" id="phone1" class="form-control" placeholder="<?php echo localize('Personnal-Phone');?>">
                 </div>
                 <div class="form-group contact-forms col-md-2">
-                    <input type="text" name="extension1" id="extension1" class="form-control" placeholder="Ext:">
+                    <input type="text" name="extension1" id="extension1" class="form-control" placeholder="<?php echo localize('Personnal-Ext');?>:">
                 </div>
                 <div class="form-group contact-forms col-md-4">
                     <select name="type1">

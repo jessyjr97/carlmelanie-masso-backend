@@ -1,10 +1,10 @@
 <?php
-$titre = 'Inscription';
+$titre = localize('Inscription-Title');
  ob_start(); ?>
 
 <section class="contact py-lg-4 py-md-3 py-sm-3 py-3">
   <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
-    <h3 class="title text-center mb-md-4 mb-sm-3 mb-3 mb-2">Inscription</h3>
+    <h3 class="title text-center mb-md-4 mb-sm-3 mb-3 mb-2"><?php echo localize('Inscription-Title'); ?></h3>
     <div id="empty" style="color:#F00"></div>
     <div class="row w3pvt-info-para pt-lg-5 pt-md-4 pt-3">
       <div class="col-lg-6 col-md-6">
@@ -14,53 +14,53 @@ $titre = 'Inscription';
               <div class="form-check form-check-inline">
                 <label class="form-check-inline">
                 <input type="radio" class="form-check-input" name="gender" value="F">
-                <h4>Madamme</h4></label>
+                <h4><?php echo localize('Inscription-Madam'); ?></h4></label>
               </div>
               <div class="form-check form-check-inline">
                 <label class="form-check-inline">
                 <input type="radio" class="form-check-input" name="gender" value="M">
-                <h4>Monsieur</h4></label>
+                <h4><?php echo localize('Inscription-Sir'); ?></h4></label>
               </div>
             </div>
             <div class="form-group contact-forms">
-              <label for="firstname"><h4>Prénom</h4></label>
-              <input type="text" name="firstname" id="firstname" class="form-control" placeholder="Prénom">
+              <label for="firstname"><h4><?php echo localize('Inscription-Firstname'); ?></h4></label>
+              <input type="text" name="firstname" id="firstname" class="form-control" placeholder="<?php echo localize('Inscription-Firstname'); ?>">
             </div>
             <div class="form-group contact-forms">
-              <label for="lastname"><h4>Nom</h4></label>
-              <input type="text" name="lastname" id="lastname" class="form-control" placeholder="Nom">
+              <label for="lastname"><h4><?php echo localize('Inscription-Lastname'); ?></h4></label>
+              <input type="text" name="lastname" id="lastname" class="form-control" placeholder="<?php echo localize('Inscription-Lastname'); ?>">
             </div>
             <div class="form-group contact-forms">
-              <label for="email"><h4>Adresse courriel</h4></label>
-              <input type="email" id="email" name="email" class="form-control" placeholder="Adresse courriel">
+              <label for="email"><h4><?php echo localize('Login-Email'); ?></h4></label>
+              <input type="email" id="email" name="email" class="form-control" placeholder="<?php echo localize('Login-Email'); ?>">
               <div id="emailinuse" style="color:#F00"></div>
             </div>
             <div class="form-group contact-forms">
-                <label for="email2"><h4>Confirmation de l'adresse courriel</h4></label>
-              <input type="email" id="email2" name="email2" class="form-control" placeholder="Adresse courriel">
+                <label for="email2"><h4><?php echo localize('Inscription-ConfirmEmail'); ?></h4></label>
+              <input type="email" id="email2" name="email2" class="form-control" placeholder="<?php echo localize('Login-Email'); ?>">
             </div>
             <div id="emailerror" style="color:#F00"></div>
             <div class="form-group contact-forms">
-              <label for="password"><h4>Mot de passe</h4></label>
-              <input type="password" name="password" id="password" class="form-control" placeholder="Mot de passe" >
+              <label for="password"><h4><?php echo localize('Login-Password'); ?></h4></label>
+              <input type="password" name="password" id="password" class="form-control" placeholder="<?php echo localize('Login-Password'); ?>" >
             </div>
             <div class="form-group contact-forms">
-              <label for="password2"><h4>Confirmation du mot de passe</h4></label>
-              <input type="password" name="password2" id="password2" class="form-control" placeholder="Mot de passe" >
+              <label for="password2"><h4><?php echo localize('Inscription-ConfirmPassword'); ?></h4></label>
+              <input type="password" name="password2" id="password2" class="form-control" placeholder="<?php echo localize('Login-Password'); ?>" >
             </div>
             <div id="passworderror" style="color:#F00"></div>
             <div>
-                <button type="submit" class="btn sent-butnn">Étape suivante</button>
+                <button type="submit" class="btn sent-butnn"><?php echo localize('Inscription-NextStep'); ?></button>
             </div>
           </div>
         </form>
       </div>
       <div class=" col-lg-6 col-md-6 ">
         <div >
-          <h4>Vous êtes déjà client?</h4>
+          <h4><?php echo localize('Inscription-AlreadyRegistered'); ?>?</h4>
         </div>
         <div class=" mt-3">
-        <a href="index.php?action=login"><h4>Connectez vous!</h4></a>
+        <a href="index.php?action=login"><h4><?php echo localize('Inscription-Login'); ?>!</h4></a>
         </div>
       </div>
     </div>
@@ -113,12 +113,12 @@ $(document).ready(function(){
             },
             email:{
                 required :'<?php echo localize('Validate-Error-RequiredField'); ?>.',
-                email: '<?php echo localize('Validate-Error_InvalidEmail'); ?>.'
+                email: '<?php echo localize('Validate-Error-InvalidEmail'); ?>.'
             },
             email2:{
                 required :'<?php echo localize('Validate-Error-RequiredField'); ?>.',
-                email: '<?php echo localize('Validate-Error_InvalidEmail'); ?>.',
-                equalTo: '<?php echo localize('Validate-Error_EmailDontMatch'); ?>.'
+                email: '<?php echo localize('Validate-Error-InvalidEmail'); ?>.',
+                equalTo: '<?php echo localize('Validate-Error-EmailDontMatch'); ?>.'
             },
             password2:{
                 required : '<?php echo localize('Validate-Error-RequiredField'); ?>.',
@@ -145,19 +145,19 @@ $(document).ready(function(){
                 data:{email:$("#email").val(),email2:$("#email2").val(),password:$("#password").val(),
                       password2:$("#password2").val(),firstname:$("#firstname").val(),lastname:$("#lastname").val(),
                       gender:$("[name=gender]:checked").val()},
-                success:function(output){console.log(output);
+                success:function(output){
                     if(output.trim() == 'availlable'){
                         window.location = 'index.php?action=inscription';
                     }
                     else if(output.trim() == 'taken'){
-                        $("#emailinuse").html("<p>Email in use.</p>");
+                        $("#emailinuse").html("<p><?php echo localize('Validate-Error-EmailInUse'); ?>.</p>");
                     }
                     else if(output.trim() == 'passworderror'){
-                        $("#passworderror").html("<p>Ne correspond pas.</p>");
+                        $("#passworderror").html("<p><?php echo localize('Validate-Error-PasswordDontMatch'); ?>.</p>");
                     }else if(output.trim() == 'emailerror'){
-                        $("#emailerror").html("<p>Ne correspond pas.</p>");
+                        $("#emailerror").html("<p><?php echo localize('Validate-Error-EmailDontMatch'); ?>.</p>");
                     }else if(output.trim() == 'emptyfield'){
-                        $("#empty").html("<p> Un ou plusieurs champs sont vide.</p>");
+                        $("#empty").html("<p> <?php echo localize('Validate-Error-EmptyFields'); ?>.</p>");
                     }
                 },
             });

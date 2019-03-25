@@ -7,7 +7,7 @@ $titre = 'Connection';
     <?php
         if (isset($_POST['email'])){
             ?>
-            <p class="text-center mb-md-4 mb-sm-3 mb-3 mb-2">Adresse courriel ou mot de passe incorrect.</p>
+            <p class="text-center mb-md-4 mb-sm-3 mb-3 mb-2"><?php echo Localize('Login-LoginFail');?>.</p>
             <?php
         }
     ?>
@@ -17,13 +17,13 @@ $titre = 'Connection';
           <div class="w3pvt-wls-contact-mid">
             <div class="form-group contact-forms">
                 <label for="email"><h4><?php echo Localize('Login-Email');?></h4></label>
-              <input type="email" id="email" name="email" class="form-control" placeholder="Adresse courriel" value="<?php if (isset($_POST['email'])){
+              <input type="email" id="email" name="email" class="form-control" placeholder="<?php echo Localize('Login-Email');?>" value="<?php if (isset($_POST['email'])){
                 echo $_POST['email'];
             } ?>">
             </div>
             <div class="form-group contact-forms">
               <label for="password"><h4><?php echo Localize('Login-Password');?></h4></label>
-              <input type="password" name="password" id="password" class="form-control" placeholder="Mot de passe" required="">
+              <input type="password" name="password" id="password" class="form-control" placeholder="<?php echo Localize('Login-Password');?>" required="">
             </div>
             <button type="submit" class="btn sent-butnn"><?php echo Localize('Login-Title');?></button>
           </div>
