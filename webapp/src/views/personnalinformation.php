@@ -124,6 +124,58 @@ $titre = localize('Personnal-Title');
   </div>
 </section>
 
+<script>
+$(document).ready(function(){
+    $('#phone1').mask('(000)000-0000');
+    $('#phone2').mask('(000)000-0000');
+    $('#phone3').mask('(000)000-0000');
+
+    
+    $("#personnalinformation").validate({
+        rules:{
+            address: {
+                required:true
+            },
+            city:{
+                required:true
+            },
+            zipcode:{
+                required:true
+            },
+            dateofbirth:{
+                required:true
+            },
+            occupation:{
+                required:true
+            },
+            phone1:{
+                required:true
+            }
+        },
+        messages:{
+            address:{
+                required:'<?php echo localize('Validate-Error-RequiredField'); ?>.'
+            },
+            city:{
+                required :'<?php echo localize('Validate-Error-RequiredField'); ?>.'
+            },
+            zipcode:{
+                required :'<?php echo localize('Validate-Error-RequiredField'); ?>.'
+            },
+            dateofbirth:{
+                required :'<?php echo localize('Validate-Error-RequiredField'); ?>.'
+            },
+            occupation:{
+                required :'<?php echo localize('Validate-Error-RequiredField'); ?>.'
+            },
+            phone1:{
+                required :'<?php echo localize('Validate-Error-RequiredField'); ?>.'
+            }
+        },
+    })
+});
+
+</script>
 
 <?php $contenu = ob_get_clean(); 
 $onHomePage = false;

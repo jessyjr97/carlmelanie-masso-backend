@@ -23,6 +23,8 @@
   "Header-Account": "My account",
   "Header-Account-Manage": "Manage my account",
   "Header-Logout": "Logout",
+  "Header-Manage-Password": "Change my password",
+  "Header-Manage-PersonnalInfo": "Modify my personnal information",
   "Header-Menu": "Menu",
   "Home-Button": "Sign in",
   "Home-Text-Bold": "From x$",
