@@ -252,6 +252,15 @@ function SendBug()
         echo 'il n y a aucune donnee d entree';
     }
 }
+function About()
+{
+    require('views/about.php');
+}
+
+function Appointments(){
+  require('views/appointments.php');
+}
+
 function Api()
 {
     //https://www.weichieprojects.com/blog/curl-api-calls-with-php/

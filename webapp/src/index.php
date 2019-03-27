@@ -35,6 +35,9 @@ try
         case 'appointmentCreator' :
             AppointmentCreator();
             break;
+        case 'appointments':
+            Appointments();
+            break;
         case 'customers' :
             Customers();
             break;
