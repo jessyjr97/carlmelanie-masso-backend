@@ -26,6 +26,12 @@ try
             break;
         case 'api' :
             Api();
+        case 'report-bug' :
+            ReportBug();
+            break;
+        case 'send_bug' :
+            SendBug();
+            break;
         default :
             Home();
             break;

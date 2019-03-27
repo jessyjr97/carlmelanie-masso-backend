@@ -38,6 +38,9 @@
             <li>
               <a href="index.php?action=login"><?php echo localize('PageTitle-Login'); ?></a>
             </li>
+            <?php
+              } else {
+            ?>
             <li>
             <a href="index.php?action=inscription"><?php echo localize('PageTitle-Inscription') ?></a>
             <?php
@@ -130,6 +133,10 @@
                 <li><a href="#"><span class="fa fa-vk"></span></a></li>
               </ul>
             </div>
+              <div>
+                  <i><a href="?action=report-bug" style="color:white; font-style:normal;"><span class="fa  fa-bug" aria-hidden="true">
+                          </span> <?php echo localize('Report-Problem') ?></a></i>
+              </div>
           </div>
         </div>
         <div class="bottem-wthree-footer text-center pt-lg-5 pt-md-4 pt-3">

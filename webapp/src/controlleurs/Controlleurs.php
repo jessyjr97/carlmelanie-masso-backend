@@ -174,6 +174,21 @@ function CheckEmailInUse(){
     }
 }
 
+function ReportBug()
+{
+    require('views/report_bug.php');
+}
+
+function SendBug()
+{
+    echo $_POST['bug-description'];
+    echo "penis";
+    if(isset($_POST['bug-description']))
+    {
+        echo $_POST['bug-description'];
+        echo CallAPI("POST",'Email',[htmlentities($_POST['bug-description'])]);
+    }
+}
 function Api()
 {
     //https://www.weichieprojects.com/blog/curl-api-calls-with-php/
