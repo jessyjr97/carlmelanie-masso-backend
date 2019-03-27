@@ -1,15 +1,20 @@
 <html>
   <head>
     <title>
-      <?php echo localize('CompanyName') . " - " . localize('PageTitle-Home'); ?>
+      <?php echo localize('Company-Name') . " - " . $titre; ?>
     </title>
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/style.css" rel='stylesheet' type='text/css' media="all">
-    <link href="//fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700" rel="stylesheet">
-    <link href="//fonts.googleapis.com/css?family=Oxygen:400,700" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  </head>
+      <link href="css/font-awesome.min.css" rel="stylesheet">
+      <link href="css/style.css" rel='stylesheet' type='text/css' media="all">
+      <link href="//fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700" rel="stylesheet">
+      <link href="//fonts.googleapis.com/css?family=Oxygen:400,700" rel="stylesheet">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="JavaScript/script.js"></script>
+      <script type="text/javascript" src="JavaScript/jquery-validation-1.17.0/lib/jquery-1.11.1.js"></script>
+      <script type="text/javascript" src="JavaScript/jquery-validation-1.17.0/dist/jquery.validate.min.js"></script>
+      <script type="text/javascript" src="JavaScript/jquery-validation-1.17.0/dist/localization/messages_fr.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+   </head>
   <body>
 
     <header class="header-outs inner_page-banner" id="home">
@@ -33,6 +38,8 @@
             <li>
               <a href="index.php?action=login"><?php echo localize('PageTitle-Login'); ?></a>
             </li>
+            <li>
+            <a href="index.php?action=inscription"><?php echo localize('PageTitle-Inscription') ?></a>
             <?php
               } else {
             ?>
@@ -54,7 +61,7 @@
                 </li>
                 <li>
                   <a href="index.php?action=logout" class="drop-text">
-                    <?php echo localize('Action-Logout'); ?>
+                    <?php echo localize('Header-Logout'); ?>
                   </a>
                 </li>
               </ul>
@@ -63,7 +70,7 @@
               }
             ?>
             <li class="mx-lg-3 mx-md-2 my-md-0 my-1">
-              <a href="?setLocale=en">En</a>
+              <a href="?setLocale=">En</a>
             </li>
           </ul>
         </nav>
