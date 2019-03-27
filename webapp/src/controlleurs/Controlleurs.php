@@ -51,25 +51,23 @@ function getLocaleFile($locale)
 
 
 function Login(){
-    if(!empty($_POST)){
+    if(isset($_POST['email'])){
         unset($_SESSION['email']);
-        $userInscript = new ManagerUsers;
+        $userRegistered = new ManagerUsers;
         $email = htmlentities($_POST['email']);
         $password = htmlentities($_POST['password']);
-        $user = $userInscript->VerifierLogin($email, $password);
+        $user = $userRegistered->VerifierLogin($email, $password);
         if($donnees = $user->fetch())
         {
             $_SESSION['username'] = $donnees['first_name'] . ' ' . $donnees['last_name'];
             $_SESSION['userid'] = $donnees['id_user'];
-            $user->closeCursor();
-            require('views/about.php');
+            About();
         }
         else
         {
-            $user->closeCursor();
-            $contenu = ob_get_clean();
             require('Views/login.php');
         }
+        $user->closeCursor();
     }
     else
     {
@@ -96,64 +94,61 @@ function Inscription(){
     }
 }
 
-function Schedule(){
-
-}
-
 function About(){
     unset($_SESSION['email']);
     require('views/about.php');
 }
 
 function PersonnalInformation(){
+    if(!isset($_SESSION['userid'])){
+        AddUser();
+    }
+}
+
+function AddUser(){
     if(isset($_POST)){
-        $extension1 = '';
-        $phone2 = '';
-        $extension2 = '';
-        $type2 = 0;
-        $phone3 = '';
-        $extension3 = '';
-        $type3 = 0;
-        if(!empty($_POST['extension1'])){
-            $extension1 = htmlentities($_POST['extension1']);
-        }
-        if(!empty($_POST['phone2'])){
-            $phone2 = htmlentities($_POST['phone2']);
-            $type2 = htmlentities($_POST['type2']);
-        }
-        if(!empty($_POST['extension2'])){
-            $extension2 = htmlentities($_POST['extension2']);
-        }
-        if(!empty($_POST['phone3'])){
-            $phone3 = htmlentities($_POST['phone3']);
-            $type3 = htmlentities($_POST['type3']);
-        }
-        if(!empty($_POST['extension3'])){
-            $extension3 = htmlentities($_POST['extension3']);
-        }
         if($_POST['address'] != '' and $_POST['city'] != '' 
         and $_POST['province'] != '' and $_POST['zipcode'] != ''
         and $_POST['dateofbirth'] != '' and $_POST['occupation'] != ''
         and $_POST['phone1'] != '' and $_POST['type1'] != ''){
+            $phone1 = array(htmlentities($_POST['phone1']),'',htmlentities($_POST['type1']));
+            if(!empty($_POST['extension1'])){
+                $phone1[1] = htmlentities($_POST['extension1']);
+            }
+            $phone2 = array('','','0');
+            $phone3 = array('','','0');
+            if(!empty($_POST['phone2'])){
+                $phone2[0] = htmlentities($_POST['phone2']);
+                $phone2[2] = htmlentities($_POST['type2']);
+                if(!empty($_POST['extension2'])){
+                    $phone2[1] = htmlentities($_POST['extension2']);
+                }
+            }
+            if(!empty($_POST['phone3'])){
+                $phone3[0] = htmlentities($_POST['phone3']);
+                $phone3[2] = htmlentities($_POST['type3']);
+                if(!empty($_POST['extension3'])){
+                    $phone2[1] = htmlentities($_POST['extension3']);
+                }
+            }
             $newUser = new ManagerUsers;
             $newUser->AddUser($_SESSION['email'],$_SESSION['password'],$_SESSION['firstname'],
             $_SESSION['lastname'],$_SESSION['gender'],htmlentities($_POST['address']),
             htmlentities($_POST['city']),htmlentities($_POST['province']),
             htmlentities($_POST['zipcode']),htmlentities($_POST['dateofbirth']),
-            htmlentities($_POST['occupation']),htmlentities($_POST['phone1']),
-            $extension1,htmlentities($_POST['type1']),
-            $phone2,$extension2,$type2,$phone3,$extension3,$type3);
+            htmlentities($_POST['occupation']),$phone1[0],$phone1[1],$phone1[2],
+            $phone2[0],$phone2[1],$phone2[2],$phone3[0],$phone3[1],$phone3[2]);
             $_SESSION['registered'] = 'success';
         }
+        unset($_SESSION['email']);
+        Login();
     }
-    unset($_SESSION['email']);
-    About();
 }
 
 function CheckEmailInUse(){
     $user = new ManagerUsers;
     $emailinUse = $user->CheckEmailInUse(htmlentities($_POST['email']));
-    if($donnees = $emailinUse->fetch())
+    if($emailinUse->fetch())
     {
         echo 'taken';
     }

@@ -19,9 +19,6 @@ try
         case 'personnalinformation':
             PersonnalInformation();
             break;
-        case 'schedule':
-            Schedule();
-            break;
         case 'logout':
             session_unset();
             session_destroy();

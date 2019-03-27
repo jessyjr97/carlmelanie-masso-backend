@@ -9,6 +9,10 @@ $titre = 'Connection';
             ?>
             <p class="text-center mb-md-4 mb-sm-3 mb-3 mb-2"><?php echo Localize('Login-LoginFail');?>.</p>
             <?php
+        }else if(isset($_SESSION['registered'])){
+          ?>
+            <p class="text-center mb-md-4 mb-sm-3 mb-3 mb-2"><?php echo Localize('Login-Success');?>.</p>
+            <?php
         }
     ?>
     <div class="row w3pvt-info-para pt-lg-5 pt-md-4 pt-3">
