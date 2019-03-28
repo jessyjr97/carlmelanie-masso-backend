@@ -174,6 +174,37 @@ function CheckEmailInUse(){
     }
 }
 
+function UpdatePassword(){
+    if(!empty($_POST)){
+        if(isset($_POST['oldpassword']) and isset($_POST['newpassword']) and isset($_POST['confirmedpassword'])){
+            if(CheckPasswords()){
+                $updatePassword = new ManagerUsers;
+                $updatePassword->UpdatePassword(htmlentities($_POST['newpassword']),$_SESSION['userid']);
+                require('views/about.php');
+            }else{
+                require('views/UpdatePassword.php');
+            }
+        }
+    }else{
+        require('views/UpdatePassword.php');
+    }
+}
+
+function CheckPasswords(){
+    $currentPassword = new ManagerUsers;
+    $oldpassword = $currentPassword->GetPassword($_SESSION['userid']);
+    if($oldpassword != htmlentities($_POST['oldpassword'])){
+        return false;
+    }else if(htmlentities($_POST['confirmedpassword']) != htmlentities($_POST['newpassword'])){
+        return false;
+    }else if(htmlentities($_POST['oldpassword']) == '' or htmlentities($_POST['confirmedpassword']) =='' 
+            or htmlentities($_POST['newpassword']) == ''){
+        return false;
+    }else{
+        return true;
+    }
+}
+
 function ReportBug()
 {
     require('views/report_bug.php');

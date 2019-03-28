@@ -61,5 +61,26 @@ class ManagerUsers extends Connexion
         $result = self::getConnexion()->query($sql);
         return $result;
     }
+
+    public function UpdatePassword($password,$userid){
+        $sql = 'CALL UpdatePassword(:password, :userid)';
+        $updatePassword = self::getConnexion()->prepare($sql);
+        $updatePassword->bindParam('password',$password, PDO::PARAM_STR);
+        $updatePassword->bindParam('userid',$userid, PDO::PARAM_INT);
+        $updatePassword->execute();
+    }
+
+    public function GetPassword($userid){
+        $sql = 'CALL GetPassword(:userid)';
+        $password = self::getConnexion()->prepare($sql);
+        $password->bindParam('userid',$userid,PDO::PARAM_INT);
+        $password->execute();
+        if($donnees = $password->fetch())
+        {
+            return $donnees['password'];
+        }else{
+            return'';
+        }
+    }
 }
 ?>

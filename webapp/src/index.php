@@ -19,6 +19,9 @@ try
         case 'personnalinformation':
             PersonnalInformation();
             break;
+        case 'updatepassword':
+            UpdatePassword();
+            break;
         case 'logout':
             session_unset();
             session_destroy();
@@ -39,6 +42,9 @@ try
     }
     else if(isset($_POST['email'])){
         CheckEmailInUse();
+    }
+    else if(isset($_POST['newpassword'])){
+        CheckPasswords();
     }
     else
     {

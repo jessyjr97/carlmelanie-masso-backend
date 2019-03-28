@@ -1,7 +1,7 @@
 <html>
   <head>
     <title>
-      <?php echo localize('CompanyName') . " - " . localize('PageTitle-Home'); ?>
+      <?php echo localize('Company-Name') . " - " . localize('PageTitle-Home'); ?>
     </title>
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
     <link href="css/font-awesome.min.css" rel="stylesheet">

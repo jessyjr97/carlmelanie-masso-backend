@@ -60,6 +60,11 @@
                   </a>
                 </li>
                 <li>
+                  <a href="index.php?action=updatepassword" class="drop-text">
+                    <?php echo localize('Header-Manage-Password'); ?>
+                  </a>
+                </li>
+                <li>
                   <a href="index.php?action=logout" class="drop-text">
                     <?php echo localize('Header-Logout'); ?>
                   </a>
