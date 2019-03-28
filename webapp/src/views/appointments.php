@@ -3,31 +3,51 @@ $title = localize('PageTitle-Appointments');
 ob_start();
 ?>
 
-<form class="form-inline">
-    <div class="input-group">
-        <input id="search_customer" type="text" class="form-control" onkeyup="SearchCustomer()"
-        name="search_customer" placeholder=<?php echo localize('searchClient'); ?>/>
-    </div>
-</form>
+<div class="border mx-auto" style="margin-top: 30px; width: 90%">
+<div class="search-header">
+    <input id="search_customer" type="text" class="form-control search-bar" onkeyup="SearchCustomer()"
+    name="search_customer" placeholder='<?php echo localize('searchClient'); ?>' />
+    <a href="?action=newAppointment" class="btn btn-success">
+        <i class="fa fa-plus fa-lg"></i> <?php echo localize('Appointments-Add'); ?>
+    </a>
+</div>
 
-<table class="container" id="tbl_appointments">
-    <thead>
-        <tr class="row">
-            <th class="col-sm">Date</th>
-            <th class="col-sm">Heure</th>
-            <th class="col-sm">Client</th>
-            <th class="col-sm">Téléphone</th>
+<table class="table table-sm table-striped table-hover" id="tbl_appointments">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Heure</th>
+            <th scope="col">Client</th>
+            <th scope="col">Téléphone</th>
         </tr>
     </thead>
     <tbody>
         <?php
+        $rendezvous = CallAPI('GET', 'Appointments/AppointmentsAndCustomers');
+        //var_dump($rendezvous[0]->appointment->idCustomer);
+
         $appointments = array(
             1 => array(
                 "appointmentDateTime" => "2019-03-26T13:00:00",
                 "durationTime" => "1000-01-01T01:30:00",
                 "idCustomer" => 2,
             ),
-            2 => array(
+                2 => array(
+                    "appointmentDateTime" => "2019-03-26T13:00:00",
+                    "durationTime" => "1000-01-01T01:30:00",
+                    "idCustomer" => 2,
+                ),
+                    3 => array(
+                        "appointmentDateTime" => "2019-03-26T13:00:00",
+                        "durationTime" => "1000-01-01T01:30:00",
+                        "idCustomer" => 2,
+                    ),
+                        4 => array(
+                            "appointmentDateTime" => "2019-03-26T13:00:00",
+                            "durationTime" => "1000-01-01T01:30:00",
+                            "idCustomer" => 2,
+                        ),
+            5 => array(
                 "appointmentDateTime" => "2019-03-26T15:00:00",
                 "durationTime" => "1000-01-01T01:00:00",
                 "idCustomer" => 1,
@@ -52,30 +72,39 @@ ob_start();
             )
         );
         $count =0;
-        foreach ($appointments as $appointment) {
+        foreach ($rendezvous as $appointment) {
         ?>
-        <tr class ="row customrow" id="<?php echo $appointment["idCustomer"]; ?>">
-            <td class="col-sm">
+        <tr id="<?php echo $appointment->appointment->idCustomer; ?>">
+            <td scope="row">
             <?php
-                $appointmentDate = new DateTime($appointment["appointmentDateTime"]);
+                $appointmentDate = new DateTime($appointment->appointment->appointmentDateTime);
                 echo $appointmentDate->format('Y-m-d');
             ?>
             </td>
-            <td class="col-sm">
+            <td>
             <?php
                 echo $appointmentDate->format('H:i');
             ?>
             </td>
-            <td class="col-sm">
+            <td>
             <?php
-                echo $customers[$appointment["idCustomer"]]["firstName"]
+                echo $appointment->customer->firstName
                     ." ".
-                    $customers[$appointment["idCustomer"]]["lastName"];
+                    $appointment->customer->lastName;
             ?>
             </td>
-            <td class="col-sm" id="customer_phone_number">
+            <td>
             <?php
-                echo $customers[$appointment["idCustomer"]]["phone"];
+            foreach ($appointment->phoneNumbers as $phoneNumber) {
+            ?>
+                <table style="width:100%; background-color: rgba(255,255,255,0)">
+                    <tr>
+                        <th><?php echo $phoneNumber->idPhoneType; ?></th>
+                        <td><?php echo $phoneNumber->phonenumber.$phoneNumber->extension; ?></td>
+                    </tr>
+                </table>
+            <?php
+            }
             ?>
             </td>
         </tr>
@@ -85,6 +114,7 @@ ob_start();
         ?>
     </tbody>
 </table>
+</div>
 <?php
   $contenu = ob_get_clean();
   $onHomePage = false;

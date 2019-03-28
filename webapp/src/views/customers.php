@@ -1,5 +1,5 @@
 <?php
-$titre = localize('CustomersList');
+$title = localize('CustomersList');
 ob_start(); ?>
 
     <form class="form-inline">
