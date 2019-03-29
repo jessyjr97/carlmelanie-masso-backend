@@ -72,5 +72,6 @@
   "Validate-Error-PasswordDontMatch": "The passwords do not match",
   "Validate-Error-PasswordMinLength": "Password must contain at least 7 characters",
   "Validate-Error-RequiredField": "This field is required",
-  "Website-Credits": "Courtesy of Yannick Jacques, Jessy Rodrigue and Nicolas Talbot"
+  "Website-Credits": "Courtesy of Yannick Jacques, Jessy Rodrigue and Nicolas Talbot",
+  "Email-Send-Admins" : "The email has been sent to administrators"
 }
