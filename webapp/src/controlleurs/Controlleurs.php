@@ -181,12 +181,15 @@ function ReportBug()
 
 function SendBug()
 {
-    echo $_POST['bug-description'];
-    echo "penis";
+    require('views/confirmation_message.php');
     if(isset($_POST['bug-description']))
     {
-        echo $_POST['bug-description'];
-        echo CallAPI("POST",'Email',[htmlentities($_POST['bug-description'])]);
+        $data = array( 'MessageContent' => htmlentities($_POST['bug-description']));
+        CallAPI('POST','Email' , json_encode($data));
+    }
+    else
+    {
+        echo 'il n y a aucune donnee d entree';
     }
 }
 function Api()
