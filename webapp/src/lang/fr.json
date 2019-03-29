@@ -82,8 +82,7 @@
   "Validate-Error-RequiredField": "Ce champ est obligatoire",
   "Report-Problem": "Signaler un bogue",
   "Send" : "Envoyer",
-  "Website-Credits": "Gracieuseté de Yannick Jacques, Jessy Rodrigue et Nicolas Talbot",
-  "Email-Send-Admins": "Le courriel a été envoyé aux administrateurs"
+  "Email-Send-Admins": "Le courriel a été envoyé aux administrateurs",
   "Validate-Error-ValidPhone": "Veuillez entrer un numéro valide",
   "Website-Credits": "Gracieuseté de Yannick Jacques, Jessy Rodrigue et Nicolas Talbot"
 }
