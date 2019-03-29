@@ -7,7 +7,7 @@ ob_start();
 <div class="search-header">
     <input id="search_customer" type="text" class="form-control search-bar" onkeyup="SearchCustomer()"
     name="search_customer" placeholder='<?php echo localize('searchClient'); ?>' />
-    <a href="?action=newAppointment" class="btn btn-success">
+    <a href="?action=appointmentCreator" class="btn btn-success">
         <i class="fa fa-plus fa-lg"></i> <?php echo localize('Appointments-Add'); ?>
     </a>
 </div>

@@ -9,6 +9,9 @@
     min-width: 200px;
     margin-right: 10%;
   }
+  table .active {
+    background-color: #9c9 !important;
+  }
 /*
   .customrow:hover {
     background-color: #e3fee0;
@@ -20,11 +23,20 @@
   }
 </style>
 <script type="text/javascript">
-    $(document).ready(function () {
-        $('.row').click(function () {
-            //get le id de l'objet cliqué et envoyer à appointment creator
-            alert($(this).text())
-        });
-    });
-</script>
+    function addRowHandlers() {
+        var table = document.getElementById("tbl_customers");
+        var rows = table.getElementsByTagName("tr");
+        for (i = 1; i < rows.length; i++) {
+            var currentRow = table.rows[i];
+            var createClickHandler =
+                function(row) {
+                    return function() {
+                        $(this).addClass('active').siblings().removeClass('active');
+                    };
+                };
 
+            currentRow.onclick = createClickHandler(currentRow);
+        }
+    }
+    window.onload = addRowHandlers();
+</script>
