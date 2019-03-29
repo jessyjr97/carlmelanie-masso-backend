@@ -87,7 +87,7 @@ function Inscription(){
         $phoneType = $provinces->GetPhoneType();
         $phoneType2 = $provinces->GetPhoneType();
         $phoneType3 = $provinces->GetPhoneType();
-        require('views/personnalinformation.php');
+        require('views/personalinformation.php');
     }
     else{
         require('views/inscription.php');
@@ -99,17 +99,31 @@ function About(){
     require('views/about.php');
 }
 
-function PersonnalInformation(){
+function PersonalInformation(){
     if(!isset($_SESSION['userid'])){
-        AddUser();
+        AddOrUpdateUser();
+        unset($_SESSION['email']);
+        Login();
+    }else{
+        if(!empty($_POST)){
+            AddOrUpdateUser();
+            About();
+        }else{
+            $provinces = new ManagerUsers;
+            $result = $provinces->GetProvinces();
+            $phoneType = $provinces->GetPhoneType();
+            $phoneType2 = $provinces->GetPhoneType();
+            $phoneType3 = $provinces->GetPhoneType();
+            $personalInformation = $provinces->GetPersonalInformation($_SESSION['userid']);
+            require('views/personalinformation.php');
+        }
     }
 }
 
-function AddUser(){
+function AddOrUpdateUser(){
     if(isset($_POST)){
         if($_POST['address'] != '' and $_POST['city'] != '' 
-        and $_POST['province'] != '' and $_POST['zipcode'] != ''
-        and $_POST['dateofbirth'] != '' and $_POST['occupation'] != ''
+        and $_POST['province'] != '' and $_POST['zipcode'] != '' and $_POST['occupation'] != ''
         and $_POST['phone1'] != '' and $_POST['type1'] != ''){
             $phone1 = array(htmlentities($_POST['phone1']),'',htmlentities($_POST['type1']));
             if(!empty($_POST['extension1'])){
@@ -132,16 +146,28 @@ function AddUser(){
                 }
             }
             $newUser = new ManagerUsers;
-            $newUser->AddUser($_SESSION['email'],$_SESSION['password'],$_SESSION['firstname'],
+            if(!isset($_SESSION['userid'])){
+                $newUser->AddUser($_SESSION['email'],$_SESSION['password'],$_SESSION['firstname'],
             $_SESSION['lastname'],$_SESSION['gender'],htmlentities($_POST['address']),
             htmlentities($_POST['city']),htmlentities($_POST['province']),
-            htmlentities($_POST['zipcode']),htmlentities($_POST['dateofbirth']),
+            htmlentities($_POST['zipcode']),$_SESSION['dateofbirth'],
             htmlentities($_POST['occupation']),$phone1[0],$phone1[1],$phone1[2],
             $phone2[0],$phone2[1],$phone2[2],$phone3[0],$phone3[1],$phone3[2]);
             $_SESSION['registered'] = 'success';
+            unset($_SESSION['email']);
+            unset($_SESSION['password']);
+            unset($_SESSION['firstname']);
+            unset($_SESSION['lastname']);
+            unset($_SESSION['gender']);
+            unset($_SESSION['dateofbirth']);
+            }else{
+                $newUser->UpdateUser($_SESSION['userid'],htmlentities($_POST['address']),
+                htmlentities($_POST['city']),htmlentities($_POST['province']),
+                htmlentities($_POST['zipcode']), htmlentities($_POST['occupation']),
+                $phone1[0],$phone1[1],$phone1[2], $phone2[0],$phone2[1],$phone2[2],
+                $phone3[0],$phone3[1],$phone3[2]);
+            }
         }
-        unset($_SESSION['email']);
-        Login();
     }
 }
 
@@ -166,11 +192,45 @@ function CheckEmailInUse(){
             $_SESSION['firstname'] = htmlentities($_POST['firstname']);
             $_SESSION['lastname'] = htmlentities($_POST['lastname']);
             $_SESSION['gender'] = htmlentities($_POST['gender']);
+            $_SESSION['dateofbirth'] = htmlentities($_POST['dateofbirth']);
             echo 'availlable';
         }
         else{
             echo 'emptyfield';
         }
+    }
+}
+
+function UpdatePassword(){
+    if(!empty($_POST)){
+        if(isset($_POST['oldpassword']) and isset($_POST['newpassword']) and isset($_POST['confirmedpassword'])){
+            if(CheckPasswords()){
+                $updatePassword = new ManagerUsers;
+                $updatePassword->UpdatePassword(htmlentities($_POST['newpassword']),$_SESSION['userid']);
+                require('views/about.php');
+            }else{
+                require('views/UpdatePassword.php');
+            }
+        }
+    }else{
+        require('views/UpdatePassword.php');
+    }
+}
+
+function CheckPasswords(){
+    $currentPassword = new ManagerUsers;
+    $oldpassword = $currentPassword->GetPassword($_SESSION['userid']);
+    if($oldpassword != htmlentities($_POST['oldpassword'])){
+        return false;
+    }else if(htmlentities($_POST['confirmedpassword']) != htmlentities($_POST['newpassword'])){
+        return false;
+    }else if(htmlentities($_POST['oldpassword']) == '' or htmlentities($_POST['confirmedpassword']) =='' 
+            or htmlentities($_POST['newpassword']) == ''){
+        return false;
+    }else if(htmlentities($_POST['oldpassword']) == htmlentities($_POST['newpassword'])){
+        return false;
+    }else{
+        return true;
     }
 }
 
