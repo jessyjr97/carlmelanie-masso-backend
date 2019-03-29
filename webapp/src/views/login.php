@@ -13,6 +13,7 @@ $titre = Localize('Login-Title');
           ?>
             <p class="text-center mb-md-4 mb-sm-3 mb-3 mb-2"><?php echo Localize('Login-Success');?>.</p>
             <?php
+            unset($_SESSION['registered']);
         }
     ?>
     <div class="row w3pvt-info-para pt-lg-5 pt-md-4 pt-3">

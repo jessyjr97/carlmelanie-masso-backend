@@ -8,11 +8,6 @@ html {
   scroll-behavior: smooth;
 }
 
-#phonerow2,
-#phonerow3{
-  visibility: hidden;
-}
-
 .plus-minus{
   height: 25px;
 }

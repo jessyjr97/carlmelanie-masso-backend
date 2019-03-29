@@ -31,6 +31,10 @@ $titre = localize('Inscription-Title');
               <input type="text" name="lastname" id="lastname" class="form-control" placeholder="<?php echo localize('Inscription-Lastname'); ?>">
             </div>
             <div class="form-group contact-forms">
+              <label for="dateofbirth"><h4><?php echo localize('Personnal-DateOfBirth');?></h4></label>
+              <input type="date" name="dateofbirth" id="dateofbirth" class="datepicker">
+            </div>
+            <div class="form-group contact-forms">
               <label for="email"><h4><?php echo localize('Login-Email'); ?></h4></label>
               <input type="email" id="email" name="email" class="form-control" placeholder="<?php echo localize('Login-Email'); ?>">
               <div id="emailinuse" style="color:#F00"></div>
@@ -88,6 +92,9 @@ $(document).ready(function(){
             firstname:{
                 required:true
             },
+            dateofbirth:{
+                required:true
+            },
             lastname:{
                 required:true
             },
@@ -114,6 +121,9 @@ $(document).ready(function(){
             email:{
                 required :'<?php echo localize('Validate-Error-RequiredField'); ?>.',
                 email: '<?php echo localize('Validate-Error-InvalidEmail'); ?>.'
+            },
+            dateofbirth:{
+                required :'<?php echo localize('Validate-Error-RequiredField'); ?>.'
             },
             email2:{
                 required :'<?php echo localize('Validate-Error-RequiredField'); ?>.',
@@ -144,7 +154,7 @@ $(document).ready(function(){
                 dataType: 'html',
                 data:{email:$("#email").val(),email2:$("#email2").val(),password:$("#password").val(),
                       password2:$("#password2").val(),firstname:$("#firstname").val(),lastname:$("#lastname").val(),
-                      gender:$("[name=gender]:checked").val()},
+                      gender:$("[name=gender]:checked").val(), dateofbirth:$('#dateofbirth').val()},
                 success:function(output){
                     if(output.trim() == 'availlable'){
                         window.location = 'index.php?action=inscription';

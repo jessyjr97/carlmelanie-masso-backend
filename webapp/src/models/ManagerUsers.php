@@ -82,5 +82,37 @@ class ManagerUsers extends Connexion
             return'';
         }
     }
+
+    public function GetPersonnalInformation($userid){
+        $sql = 'CALL GetPersonnalInformation(:userid)';
+        $personnalInformation = self::getConnexion()->prepare($sql);
+        $personnalInformation->bindParam('userid',$userid,PDO::PARAM_INT);
+        $personnalInformation->execute();
+        return $personnalInformation;
+    }
+
+    public function UpdateUser($userid, $address,$city,$province,$zipcode,
+    $occupation,$phone1,$extension1,$type1,$phone2,$extension2,$type2,
+    $phone3,$extension3,$type3){
+        $sql = ' CALL UpdateUser(:userid, :address,:city,:province,:zipcode,:occupation,
+        :phone1,:extension1,:type1,:phone2,:extension2,:type2,:phone3,:extension3,:type3)';
+        $registerUser = self::getConnexion()->prepare($sql);
+        $registerUser->bindParam('userid',$userid, PDO::PARAM_INT);
+        $registerUser->bindParam('address',$address, PDO::PARAM_STR);
+        $registerUser->bindParam('city',$city, PDO::PARAM_STR);
+        $registerUser->bindParam('province',$province, PDO::PARAM_INT);
+        $registerUser->bindParam('zipcode',$zipcode, PDO::PARAM_STR);
+        $registerUser->bindParam('occupation',$occupation, PDO::PARAM_STR);
+        $registerUser->bindParam('phone1',$phone1, PDO::PARAM_STR);
+        $registerUser->bindParam('extension1',$extension1, PDO::PARAM_STR);
+        $registerUser->bindParam('type1',$type1, PDO::PARAM_INT);
+        $registerUser->bindParam('phone2',$phone2, PDO::PARAM_STR);
+        $registerUser->bindParam('extension2',$extension2, PDO::PARAM_STR);
+        $registerUser->bindParam('type2',$type2, PDO::PARAM_INT);
+        $registerUser->bindParam('phone3',$phone3, PDO::PARAM_STR);
+        $registerUser->bindParam('extension3',$extension3, PDO::PARAM_STR);
+        $registerUser->bindParam('type3',$type3, PDO::PARAM_INT);
+        $registerUser->execute();
+    }
 }
 ?>

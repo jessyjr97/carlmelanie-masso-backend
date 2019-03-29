@@ -12,6 +12,9 @@ $titre = 'Connection';
             if(isset($_POST['newpassword'])){
             ?> <h4 class="text-center mb-md-4 mb-sm-3 mb-3 mb-2"> <?php
             echo localize('About-PasswordChange') ; ?> </h4> <?php
+          }else if(isset($_POST['address'])){
+            ?> <h4 class="text-center mb-md-4 mb-sm-3 mb-3 mb-2"> <?php
+            echo localize('About-InformationChanged') ; ?> </h4> <?php
           }
         }
         ?>
