@@ -4,12 +4,10 @@ function CallAPI($method, $url, $data = false)
 {
     $api_url = 'http://webapi/api/' . $url;
     $curl = curl_init();
-
     switch ($method)
     {
         case "POST":
-            curl_setopt($curl, CURLOPT_POST, 1);
-
+            curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
             if ($data)
                 curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
             break;
@@ -25,9 +23,10 @@ function CallAPI($method, $url, $data = false)
 
     curl_setopt($curl, CURLOPT_URL, $api_url);
     curl_setopt($curl, CURLOPT_HTTPHEADER, array(
-        'Content-Type: application/json',
+        'Content-Type: application/json'
     ));
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl, CURLOPT_HEADER, false);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
 
     $result = curl_exec($curl);

@@ -174,6 +174,24 @@ function CheckEmailInUse(){
     }
 }
 
+function ReportBug()
+{
+    require('views/report_bug.php');
+}
+
+function SendBug()
+{
+    require('views/confirmation_message.php');
+    if(isset($_POST['bug-description']))
+    {
+        $data = array( 'MessageContent' => htmlentities($_POST['bug-description']));
+        CallAPI('POST','Email' , json_encode($data));
+    }
+    else
+    {
+        echo 'il n y a aucune donnee d entree';
+    }
+}
 function Api()
 {
     //https://www.weichieprojects.com/blog/curl-api-calls-with-php/
