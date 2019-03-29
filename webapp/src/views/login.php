@@ -17,7 +17,7 @@ $titre = Localize('Login-Title');
     ?>
     <div class="row w3pvt-info-para pt-lg-5 pt-md-4 pt-3">
       <div class="col-lg-6 col-md-6">
-        <form action="index.php?action=login" method="post">
+        <form action="index.php?action=login" name="connexion" id="connexion" method="post">
           <div class="w3pvt-wls-contact-mid">
             <div class="form-group contact-forms">
                 <label for="email"><h4><?php echo Localize('Login-Email');?></h4></label>
@@ -27,7 +27,7 @@ $titre = Localize('Login-Title');
             </div>
             <div class="form-group contact-forms">
               <label for="password"><h4><?php echo Localize('Login-Password');?></h4></label>
-              <input type="password" name="password" id="password" class="form-control" placeholder="<?php echo Localize('Login-Password');?>" required="">
+              <input type="password" name="password" id="password" class="form-control" placeholder="<?php echo Localize('Login-Password');?>" >
             </div>
             <button type="submit" class="btn sent-butnn"><?php echo Localize('Login-Title');?></button>
           </div>
@@ -44,7 +44,24 @@ $titre = Localize('Login-Title');
     </div>
   </div>
 </section>
-
+<script>
+$(document).ready(function(){
+    $("#connexion").validate({
+        rules:{
+          email: {
+                required:true,
+                email:true
+            }
+        },
+        messages:{
+          email:{
+                required:'<?php echo localize('Validate-Error-RequiredField'); ?>.',
+                email: '<?php echo localize('Validate-Error-InvalidEmail'); ?>.' 
+            }
+        }
+    });
+});
+</script>
 <?php $contenu = ob_get_clean(); 
 $onHomePage = false;
 require 'gabarit.php'; ?>

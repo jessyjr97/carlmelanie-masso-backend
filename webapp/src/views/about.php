@@ -6,7 +6,13 @@ $titre = 'Connection';
         <?php
         if (isset($_SESSION['username'])) {
             ?> <h4 class="text-center mb-md-4 mb-sm-3 mb-3 mb-2"> <?php
-          echo 'Bienvenue, ' . $_SESSION['username'] ; ?> </h4> <?php
+          echo localize('About-Welcome').', ' . $_SESSION['username'] ; ?> </h4> <?php
+        }
+        if (!empty($_POST)) {
+            if(isset($_POST['newpassword'])){
+            ?> <h4 class="text-center mb-md-4 mb-sm-3 mb-3 mb-2"> <?php
+            echo localize('About-PasswordChange') ; ?> </h4> <?php
+          }
         }
         ?>
         <h3 class="title text-center mb-md-4 mb-sm-3 mb-3 mb-2"><?php echo localize('About-Title'); ?></h3>

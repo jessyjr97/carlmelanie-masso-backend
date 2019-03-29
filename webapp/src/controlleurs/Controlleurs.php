@@ -200,6 +200,8 @@ function CheckPasswords(){
     }else if(htmlentities($_POST['oldpassword']) == '' or htmlentities($_POST['confirmedpassword']) =='' 
             or htmlentities($_POST['newpassword']) == ''){
         return false;
+    }else if(htmlentities($_POST['oldpassword']) == htmlentities($_POST['newpassword'])){
+        return false;
     }else{
         return true;
     }
