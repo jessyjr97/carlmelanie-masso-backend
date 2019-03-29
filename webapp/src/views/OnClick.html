@@ -9,7 +9,7 @@
     min-width: 200px;
     margin-right: 10%;
   }
-  table .active {
+  table .activeRow {
     background-color: #9c9 !important;
   }
 /*
@@ -23,20 +23,70 @@
   }
 </style>
 <script type="text/javascript">
-    function addRowHandlers() {
-        var table = document.getElementById("tbl_customers");
-        var rows = table.getElementsByTagName("tr");
-        for (i = 1; i < rows.length; i++) {
-            var currentRow = table.rows[i];
-            var createClickHandler =
-                function(row) {
-                    return function() {
-                        $(this).addClass('active').siblings().removeClass('active');
-                    };
-                };
+    $('#tbl_customers').on('click', '.clickable-row', function(event) {
+        $(this).addClass('activeRow').siblings().removeClass('activeRow');
+    });
+    $(document).ready(function(){
+        $('#frm_newAppointment').on('click', '#btn_makeAppointment', function(){
+            var client = document.getElementsByClassName('activeRow')[0];
+            if (!client){
+                alert('Veuillez sélectionner un client');
+            } else {
+                var appointmentDate = document.getElementById('appointmentDate').value;
+                var appointmentTime = document.getElementById('appointmentTime').value;
+                var appointmentLength = document.getElementById('appointmentLength').value;
+                $.ajax({
+                    url: '?action=makeAppointment',
+                    type: "post",
+                    data:{
+                        appointmentDate: appointmentDate,
+                        appointmentTime: appointmentTime,
+                        appointmentLength: appointmentLength,
+                        idCustomer: client.id
+                    },
+                    success:function(output) {
+                        $('#submitResult').html(output);
+                    }
+                });
+            }
+        });
+        /*
+        $('#frm_newAppointment').on('click', '#btn_checkAvaillable', function(){
+            var clientId = document.getElementsByClassName('activeRow')[0].id;
+            if (!clientId){
+                alert('Veuillez sélectionner un client');
+            } else {
 
-            currentRow.onclick = createClickHandler(currentRow);
-        }
-    }
-    window.onload = addRowHandlers();
+                $.ajax({
+                    url: '?action=makeAppointment',
+                    type: "post",
+                    data:{
+                        date: ,
+                        idLikedPhoto: postid,
+                    },
+                    success:function(htmlAjoutVote) {
+                        $.ajax({
+                            url: 'Index.php?action=ShowTableGalerie',
+                            type: "post",
+                            data:{
+                                id_categorie:CategorieID
+                            },
+                            success:function(htmlTableGalerie) {
+                                $("#tableGalerie").html(htmlTableGalerie);
+                                $.ajax({
+                                    url: 'Index.php',
+                                    type: "get",
+                                    data:{ action:'ShowFavoris' },
+                                    success:function(htmlFavoris) {
+                                        $("#ongletFavoris").html(htmlFavoris);
+                                    }
+                                });
+                            }
+                        });
+                    }
+                });
+            }
+        });
+        */
+    });
 </script>

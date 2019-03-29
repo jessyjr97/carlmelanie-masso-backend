@@ -261,6 +261,22 @@ function Appointments(){
   require('views/appointments.php');
 }
 
+function MakeAppointment(){
+    if (isset($_POST)){
+        $appointment = array(
+            'AppointmentDateTime' => htmlentities($_POST['appointmentDate'].' '.$_POST['appointmentTime']),
+            'DurationTime' => htmlentities($_POST['appointmentLength']),
+            'IdCustomer' => htmlentities($_POST['idCustomer'])
+        );
+        var_dump($appointment);
+        CallAPI('POST', 'Appointments/CheckAppointmentIsAvaillable', json_encode($appointment));
+        echo  'success';
+    } else {
+        //declareError
+        require('views/appointmentCreator');
+    }
+}
+
 function Api()
 {
     //https://www.weichieprojects.com/blog/curl-api-calls-with-php/

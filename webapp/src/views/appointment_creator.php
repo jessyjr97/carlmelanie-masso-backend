@@ -4,26 +4,25 @@ ob_start(); ?>
     <section class="contact py-lg-4 py-md-3 py-sm-3 py-3">
         <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
             <h3 class="title text-center mb-md-4 mb-sm-3 mb-3 mb-2">Nouveau rendez-vous</h3>
-            <form class="row w3pvt-info-para pt-lg-5 pt-md-4 pt-3" action="?action=makeAppointment" method="post">
+            <form class="row w3pvt-info-para pt-lg-5 pt-md-4 pt-3" id="frm_newAppointment" method="post">
                 <div class="col-lg-6 col-md-6">
                     <h4>Détails du rendez-vous</h4>
                     <div class="w3pvt-wls-contact-mid">
                         <div class="form-group contact-forms">
-                            <label for="email"><p>Date</p></label>
-                            <input type="date" id="email" name="email" class="form-control" placeholder="Adresse courriel" value="<?php if (isset($_POST['email'])) {
-                            echo $_POST['email'];
-                        } ?>">
+                            <label for="appointmentDate"><p>Date</p></label>
+                            <input type="date" id="appointmentDate" name="appointmentDate" class="form-control" placeholder="Date du rendez-vous" required>
                         </div>
                         <div class="form-group contact-forms">
-                            <label for="password"><p>Heure</p></label>
-                            <input type="time" name="password" id="password" class="form-control" placeholder="Mot de passe" required="">
+                            <label for="appointmentTime"><p>Heure</p></label>
+                            <input type="time" name="appointmentTime" id="appointmentTime" class="form-control" placeholder="Heure du rendez-vous" required>
                         </div>
                         <div class="form-group contact-forms">
-                            <label for="appointment_lenght">Durée</label>
-                            <select>
-                                <option value="1:00">1 Heure</option>
-                                <option value="1:30">1 Heure 30 Minutes</option>
-                            </select>
+                            <label for="appointmentLength">Durée</label>
+                            <input list="appointmentLengthChoices" id="appointmentLength" name="appointmentLength">
+                            <datalist id="appointmentLengthChoices">
+                              <option value="1:00">
+                              <option value="1:30">
+                            </datalist>
                         </div>
                     </div>
                 </div>
@@ -78,7 +77,8 @@ ob_start(); ?>
                         </table>
                     </div>
                 </div>
-                <button type="submit" class="btn sent-butnn">Vérifier la disponibilité</button>
+                <input type="button" value='Prendre un rendez-vous' class="btn sent-butnn" id="btn_makeAppointment"></input>
+                <div id="submitResult"></div>
             </form>
         </div>
     </section>

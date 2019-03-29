@@ -4,13 +4,13 @@ try
 {
     if (isset($_GET['action'])) {
     switch ($_GET['action']){
-        case 'inscription': 
+        case 'inscription':
             Inscription();
-            break;  
-        case 'home': 
+            break;
+        case 'home':
             Home();
             break;
-        case 'login': 
+        case 'login':
             Login();
             break;
         case 'about':
@@ -40,6 +40,9 @@ try
             break;
         case 'customers' :
             Customers();
+            break;
+        case 'makeAppointment':
+            MakeAppointment();
             break;
         default :
             Home();
