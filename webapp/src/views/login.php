@@ -7,7 +7,7 @@ $titre = Localize('Login-Title');
     <?php
         if (isset($_POST['email'])){
             ?>
-            <p class="text-center mb-md-4 mb-sm-3 mb-3 mb-2"><?php echo Localize('Login-LoginFail');?>.</p>
+            <p class="text-center error_class mb-md-4 mb-sm-3 mb-3 mb-2"><?php echo Localize('Login-LoginFail');?>.</p>
             <?php
         }else if(isset($_SESSION['registered'])){
           ?>
@@ -18,7 +18,7 @@ $titre = Localize('Login-Title');
     ?>
     <div class="row w3pvt-info-para pt-lg-5 pt-md-4 pt-3">
       <div class="col-lg-6 col-md-6">
-        <form action="index.php?action=login" name="connexion" id="connexion" method="post">
+        <form action="index.php?action=login" name="connection" id="connection" method="post">
           <div class="w3pvt-wls-contact-mid">
             <div class="form-group contact-forms">
                 <label for="email"><h4><?php echo Localize('Login-Email');?></h4></label>
@@ -47,7 +47,9 @@ $titre = Localize('Login-Title');
 </section>
 <script>
 $(document).ready(function(){
-    $("#connexion").validate({
+    $("#connection").validate({
+        errorClass : "error_class",
+        errorelement : "em",
         rules:{
           email: {
                 required:true,

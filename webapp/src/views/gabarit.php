@@ -55,7 +55,7 @@
               <input type="checkbox" id="drop-3" />
               <ul>
                 <li>
-                  <a href="index.php?action=personnalinformation" class="drop-text">
+                  <a href="index.php?action=personalinformation" class="drop-text">
                     <?php echo localize('Header-Account-Manage'); ?>
                   </a>
                 </li>

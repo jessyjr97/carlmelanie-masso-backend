@@ -37,6 +37,8 @@ $titre = Localize('Header-Manage-Password');
 <script>
 $(document).ready(function(){
     $("#updatepassword").validate({
+        errorClass : "error_class",
+        errorelement : "em",
         rules:{
           oldpassword: {
                 required:true

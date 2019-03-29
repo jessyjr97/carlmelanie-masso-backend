@@ -1,5 +1,5 @@
 <?php
-$titre = localize('Personnal-Title');
+$titre = localize('Personal-Title');
  ob_start(); 
     $cpt=0;
     $address='';
@@ -12,7 +12,7 @@ $titre = localize('Personnal-Title');
     $phone3 = array('','','0');
     
 if(isset($_SESSION['userid'])){
-    while($donnees = $personnalInformation->fetch()){
+    while($donnees = $personalInformation->fetch()){
         switch ($cpt){
             case 0:
                 $address = $donnees['address'];
@@ -42,22 +42,22 @@ if(isset($_SESSION['userid'])){
 
 <section class="contact py-lg-4 py-md-3 py-sm-3 py-3">
   <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
-    <h3 class="title text-center mb-md-4 mb-sm-3 mb-3 mb-2"><?php echo localize('Personnal-Title');?></h3>
+    <h3 class="title text-center mb-md-4 mb-sm-3 mb-3 mb-2"><?php echo localize('Personal-Title');?></h3>
     <div class="row w3pvt-info-para pt-lg-5 pt-md-4 pt-3">
       <div class="col-lg-10 col-md-10">
-        <form action="index.php?action=personnalinformation" id="personnalinformation" method="post">
+        <form action="index.php?action=personalinformation" id="personalinformation" method="post">
           <div class="w3pvt-wls-contact-mid">
           <div class="form-group contact-forms">
-              <label for="address"><h4><?php echo localize('Personnal-Address');?></h4></label>
-              <input type="text" name="address" id="address" class="form-control" value="<?php echo $address; ?>" placeholder="<?php echo localize('Personnal-Address');?>">
+              <label for="address"><h4><?php echo localize('Personal-Address');?></h4></label>
+              <input type="text" name="address" id="address" class="form-control" value="<?php echo $address; ?>" placeholder="<?php echo localize('Personal-Address');?>">
             </div>
             <div class="form-row">
                 <div class="form-group contact-forms col-md-4">
-                    <label for="city"><h4><?php echo localize('Personnal-City');?></h4></label>
-                    <input type="text" name="city" id="city" value="<?php echo $city ?>" class="form-control" placeholder="<?php echo localize('Personnal-City');?>">
+                    <label for="city"><h4><?php echo localize('Personal-City');?></h4></label>
+                    <input type="text" name="city" id="city" value="<?php echo $city ?>" class="form-control" placeholder="<?php echo localize('Personal-City');?>">
                 </div>
                 <div class="form-group contact-forms col-md-4">
-                    <label for="province"><h4><?php echo localize('Personnal-Province');?></h4></label>
+                    <label for="province"><h4><?php echo localize('Personal-Province');?></h4></label>
                     <select name="province" id="province">
                     <option value=""></option>
                     <?php 
@@ -73,28 +73,28 @@ if(isset($_SESSION['userid'])){
                     </select>
                 </div>
                 <div class="form-group contact-forms col-md-4">
-                    <label for="zipcode"><h4><?php echo localize('Personnal-Zip');?></h4></label>
-                    <input type="text" value="<?php echo $zipcode ?>" name="zipcode" id="zipcode" class="form-control" placeholder="<?php echo localize('Personnal-Zip');?>">
+                    <label for="zipcode"><h4><?php echo localize('Personal-Zip');?></h4></label>
+                    <input type="text" value="<?php echo $zipcode ?>" name="zipcode" id="zipcode" class="form-control" placeholder="<?php echo localize('Personal-Zip');?>">
                 </div>
             </div>
          <div class="form-row">   
                 
                 <div class="form-group contact-forms col-md-8">
-                    <label for="occupation"><h4><?php echo localize('Personnal-Occupation');?></h4></label>
-                    <input type="text" value="<?php echo $occupation; ?>" name="occupation" id="occupation" class="form-control" placeholder="<?php echo localize('Personnal-Occupation');?>">
+                    <label for="occupation"><h4><?php echo localize('Personal-Occupation');?></h4></label>
+                    <input type="text" value="<?php echo $occupation; ?>" name="occupation" id="occupation" class="form-control" placeholder="<?php echo localize('Personal-Occupation');?>">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group contact-forms col-md-4">
-                    <label for="phone"><h4><?php echo localize('Personnal-Phone');?></h4></label>
+                    <label for="phone"><h4><?php echo localize('Personal-Phone');?></h4></label>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group contact-forms col-md-4">
-                    <input type="text" value="<?php echo $phone1[0];?>" name="phone1" id="phone1" class="form-control" placeholder="<?php echo localize('Personnal-Phone');?>">
+                    <input type="text" value="<?php echo $phone1[0];?>" name="phone1" id="phone1" class="form-control" placeholder="<?php echo localize('Personal-Phone');?>">
                 </div>
                 <div class="form-group contact-forms col-md-2">
-                    <input type="text" value="<?php echo $phone1[1];?>" name="extension1" id="extension1" class="form-control" placeholder="<?php echo localize('Personnal-Ext');?>:">
+                    <input type="text" value="<?php echo $phone1[1];?>" name="extension1" id="extension1" class="form-control" placeholder="<?php echo localize('Personal-Ext');?>:">
                 </div>
                 <div class="form-group contact-forms col-md-4">
                     <select name="type1" id="type1">
@@ -174,7 +174,7 @@ if(isset($_SESSION['userid'])){
             <?php if(!isset($_SESSION['userid'])){ ?>
                 <button type="submit" class="btn sent-butnn"><?php echo localize('Inscription-Finish');?></button> <?php
             }else{ ?>
-                <button type="submit" class="btn sent-butnn"><?php echo localize('Personnal-Update');?></button> <?php
+                <button type="submit" class="btn sent-butnn"><?php echo localize('Personal-Update');?></button> <?php
             }
                 ?>
             </div>
@@ -190,7 +190,9 @@ $(document).ready(function(){
     $('#phone1').mask('(000)000-0000');
     $('#phone2').mask('(000)000-0000');
     $('#phone3').mask('(000)000-0000');
-    $("#personnalinformation").validate({
+    $("#personalinformation").validate({
+        errorClass : "error_class",
+        errorelement : "em",
         rules:{
             address: {
                 required:true
@@ -205,7 +207,14 @@ $(document).ready(function(){
                 required:true
             },
             phone1:{
-                required:true
+                required:true,
+                minlength:13
+            },
+            phone2:{
+                minlength:13
+            },
+            phone3:{
+                minlength:13
             },
             type1:{
                 required:true
@@ -234,7 +243,14 @@ $(document).ready(function(){
                 required :'<?php echo localize('Validate-Error-RequiredField'); ?>.'
             },
             phone1:{
-                required :'<?php echo localize('Validate-Error-RequiredField'); ?>.'
+                required :'<?php echo localize('Validate-Error-RequiredField'); ?>.',
+                minlength:'<?php echo localize('Validate-Error-ValidPhone'); ?>'
+            },
+            phone2:{
+                minlength:'<?php echo localize('Validate-Error-ValidPhone'); ?>'
+            },
+            phone3:{
+                minlength:'<?php echo localize('Validate-Error-ValidPhone'); ?>'
             },
             type1:{
                 required:'<?php echo localize('Validate-Error-RequiredField'); ?>.'

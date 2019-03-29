@@ -31,7 +31,7 @@ $titre = localize('Inscription-Title');
               <input type="text" name="lastname" id="lastname" class="form-control" placeholder="<?php echo localize('Inscription-Lastname'); ?>">
             </div>
             <div class="form-group contact-forms">
-              <label for="dateofbirth"><h4><?php echo localize('Personnal-DateOfBirth');?></h4></label>
+              <label for="dateofbirth"><h4><?php echo localize('Personal-DateOfBirth');?></h4></label>
               <input type="date" name="dateofbirth" id="dateofbirth" class="datepicker">
             </div>
             <div class="form-group contact-forms">

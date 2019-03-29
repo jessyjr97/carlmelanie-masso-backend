@@ -83,12 +83,12 @@ class ManagerUsers extends Connexion
         }
     }
 
-    public function GetPersonnalInformation($userid){
+    public function GetPersonalInformation($userid){
         $sql = 'CALL GetPersonnalInformation(:userid)';
-        $personnalInformation = self::getConnexion()->prepare($sql);
-        $personnalInformation->bindParam('userid',$userid,PDO::PARAM_INT);
-        $personnalInformation->execute();
-        return $personnalInformation;
+        $personalInformation = self::getConnexion()->prepare($sql);
+        $personalInformation->bindParam('userid',$userid,PDO::PARAM_INT);
+        $personalInformation->execute();
+        return $personalInformation;
     }
 
     public function UpdateUser($userid, $address,$city,$province,$zipcode,

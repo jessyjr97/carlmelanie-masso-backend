@@ -1,5 +1,5 @@
 {
-  "About-InformationChanged": "Personnal information updated",
+  "About-InformationChanged": "Personal information updated",
   "About-Introduction": "Preface about the company.",
   "About-OurGoals": "Our goals",
   "About-OurGoals-Text": "We hope to get you in better shape.",
@@ -28,7 +28,7 @@
   "Header-Account-Manage": "Manage my account",
   "Header-Logout": "Logout",
   "Header-Manage-Password": "Password modification",
-  "Header-Manage-PersonnalInfo": "Modify my personnal information",
+  "Header-Manage-PersonalInfo": "Modify my personal information",
   "Header-Menu": "Menu",
   "Home-Button": "Sign in",
   "Home-Text-Bold": "From x$",

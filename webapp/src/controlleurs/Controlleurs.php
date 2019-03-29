@@ -87,7 +87,7 @@ function Inscription(){
         $phoneType = $provinces->GetPhoneType();
         $phoneType2 = $provinces->GetPhoneType();
         $phoneType3 = $provinces->GetPhoneType();
-        require('views/personnalinformation.php');
+        require('views/personalinformation.php');
     }
     else{
         require('views/inscription.php');
@@ -99,7 +99,7 @@ function About(){
     require('views/about.php');
 }
 
-function PersonnalInformation(){
+function PersonalInformation(){
     if(!isset($_SESSION['userid'])){
         AddOrUpdateUser();
         unset($_SESSION['email']);
@@ -114,8 +114,8 @@ function PersonnalInformation(){
             $phoneType = $provinces->GetPhoneType();
             $phoneType2 = $provinces->GetPhoneType();
             $phoneType3 = $provinces->GetPhoneType();
-            $personnalInformation = $provinces->GetPersonnalInformation($_SESSION['userid']);
-            require('views/personnalinformation.php');
+            $personalInformation = $provinces->GetPersonalInformation($_SESSION['userid']);
+            require('views/personalinformation.php');
         }
     }
 }

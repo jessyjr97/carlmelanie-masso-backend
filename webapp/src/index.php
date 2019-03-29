@@ -16,8 +16,8 @@ try
         case 'about':
             About();
             break;
-        case 'personnalinformation':
-            PersonnalInformation();
+        case 'personalinformation':
+            PersonalInformation();
             break;
         case 'updatepassword':
             UpdatePassword();
