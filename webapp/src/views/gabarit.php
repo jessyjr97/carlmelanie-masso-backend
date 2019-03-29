@@ -43,9 +43,6 @@
             ?>
             <li>
             <a href="index.php?action=inscription"><?php echo localize('PageTitle-Inscription') ?></a>
-            <?php
-              } else {
-            ?>
             <li>
               <label for="drop-3" class="toggle toogle-2">
                 <?php echo $_SESSION['username']; ?>
