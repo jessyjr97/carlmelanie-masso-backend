@@ -23,8 +23,7 @@ try
             UpdatePassword();
             break;
         case 'logout':
-            session_unset();
-            session_destroy();
+            unset($_SESSION['userid']);
             Home();
             break;
         case 'api' :
