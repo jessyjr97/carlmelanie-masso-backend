@@ -61,10 +61,22 @@
             </li>
             <?php
               }
+              if($_SESSION['locale'] == 'fr')
+              {
+                  $setLocale = 'en';
+              }
+              else if($_SESSION['locale'] == 'en')
+              {
+                  $setLocale = 'fr';
+              }
+              else
+              {
+                  $setLocale = 'fr';
+              }
             ?>
-            <li class="mx-lg-3 mx-md-2 my-md-0 my-1">
-              <a href="?setLocale=en">En</a>
-            </li>
+              <li class="mx-lg-3 mx-md-2 my-md-0 my-1">
+                  <a href="?setLocale=<?php echo $setLocale ?>"><?php echo $setLocale ?></a>
+              </li>
           </ul>
         </nav>
         <div class="main-banner text-center">
