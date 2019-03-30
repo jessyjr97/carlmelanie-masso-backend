@@ -252,10 +252,6 @@ function SendBug()
         echo 'il n y a aucune donnee d entree';
     }
 }
-function About()
-{
-    require('views/about.php');
-}
 
 function Appointments(){
   require('views/appointments.php');
@@ -268,9 +264,8 @@ function MakeAppointment(){
             'DurationTime' => htmlentities($_POST['appointmentLength']),
             'IdCustomer' => htmlentities($_POST['idCustomer'])
         );
-        var_dump($appointment);
-        CallAPI('POST', 'Appointments/CheckAppointmentIsAvaillable', json_encode($appointment));
-        echo  'success';
+        CallAPI('POST', 'Appointments/CheckAppointmentIsAvailable/%23definition', json_encode($appointment));
+        echo  'Demande envoyée!';
     } else {
         //declareError
         require('views/appointmentCreator');
