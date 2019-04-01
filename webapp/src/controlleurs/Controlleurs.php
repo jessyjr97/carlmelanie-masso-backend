@@ -65,13 +65,13 @@ function Login(){
         }
         else
         {
-            require('Views/login.php');
+            require('views/login.php');
         }
         $user->closeCursor();
     }
     else
     {
-        require('Views/login.php');
+        require('views/login.php');
     }
 }
 
