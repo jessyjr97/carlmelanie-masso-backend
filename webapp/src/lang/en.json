@@ -35,7 +35,7 @@
   "Home-Text-Bold": "From x$",
   "Home-Text-Details": "Conditions may apply.",
   "Home-Text-Title": "Take an appointment with us today!",
-   "Report-Bug-Instructions" : "If you have encountered any bugs on the site, please clearly explain the steps you have taken to trigger this one and the result you wanted.",
+  "Report-Bug-Instructions" : "If you have encountered any bugs on the site, please clearly explain the steps you have taken to trigger this one and the result you wanted.",
   "Inscription-AlreadyRegistered":"Already a client",
   "Inscription-ConfirmEmail": "Email confirmation",
   "Inscription-ConfirmPassword": "Password confirmation",
@@ -86,5 +86,15 @@
   "Validate-Error-PasswordMinLength": "Password must contain at least 7 characters",
   "Validate-Error-RequiredField": "This field is required",
   "Website-Credits": "Courtesy of Yannick Jacques, Jessy Rodrigue and Nicolas Talbot",
-  "Email-Send-Admins" : "The email has been sent to administrators"
+  "Email-Send-Admins" : "The email has been sent to administrators",
+  "PageTitle-NewAppointment":"New appointment",
+  "CreateAppointment-DetailsAppointment-Text":"Appointment details",
+  "CreateAppointment-DetailsCustomer-Text":"Select a customer",
+  "CreateAppointment-MakeAppointment":"Make an appointment",
+  "Appointment-Date":"Date",
+  "Appointment-Time":"Time",
+  "Appointment-Duration":"Length",
+  "Appointment-Customer":"Customer",
+  "CreateAppointment-OneHour":"One hour",
+  "CreateAppointment-OneHourAndHalf":"One hour thirty minutes"
 }

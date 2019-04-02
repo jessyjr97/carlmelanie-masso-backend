@@ -122,7 +122,7 @@ function PersonalInformation(){
 
 function AddOrUpdateUser(){
     if(isset($_POST)){
-        if($_POST['address'] != '' and $_POST['city'] != '' 
+        if($_POST['address'] != '' and $_POST['city'] != ''
         and $_POST['province'] != '' and $_POST['zipcode'] != '' and $_POST['occupation'] != ''
         and $_POST['phone1'] != '' and $_POST['type1'] != ''){
             $phone1 = array(htmlentities($_POST['phone1']),'',htmlentities($_POST['type1']));
@@ -179,7 +179,7 @@ function CheckEmailInUse(){
         echo 'taken';
     }
     else
-    {   
+    {
         if($_POST['email'] != $_POST['email2']){
             echo 'emailerror';
         }else if($_POST['password'] != $_POST['password2']){
@@ -224,7 +224,7 @@ function CheckPasswords(){
         return false;
     }else if(htmlentities($_POST['confirmedpassword']) != htmlentities($_POST['newpassword'])){
         return false;
-    }else if(htmlentities($_POST['oldpassword']) == '' or htmlentities($_POST['confirmedpassword']) =='' 
+    }else if(htmlentities($_POST['oldpassword']) == '' or htmlentities($_POST['confirmedpassword']) ==''
             or htmlentities($_POST['newpassword']) == ''){
         return false;
     }else if(htmlentities($_POST['oldpassword']) == htmlentities($_POST['newpassword'])){
@@ -264,11 +264,15 @@ function MakeAppointment(){
             'DurationTime' => htmlentities($_POST['appointmentLength']),
             'IdCustomer' => htmlentities($_POST['idCustomer'])
         );
-        CallAPI('POST', 'Appointments/CheckAppointmentIsAvailable/%23definition', json_encode($appointment));
-        echo  'Demande envoyée!';
+        $result = CallAPI('POST', 'Appointments/CheckAppointmentIsAvailable/%23definition', json_encode($appointment));
+        if (!$result->title){
+            echo  'success';
+        } else {
+            echo $result->title;
+        }
     } else {
         //declareError
-        require('views/appointmentCreator');
+        echo 'No data received';
     }
 }
 

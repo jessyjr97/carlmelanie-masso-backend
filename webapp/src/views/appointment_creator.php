@@ -10,7 +10,7 @@ ob_start(); ?>
                     <div class="w3pvt-wls-contact-mid">
                         <div class="form-group contact-forms">
                             <label for="appointmentDate"><p><?php echo localize('Appointment-Date'); ?></p></label>
-                            <input type="date" id="appointmentDate" name="appointmentDate" class="form-control" placeholder="Date du rendez-vous" required>
+                            <input type="date" min="<?php echo date('Y-m-d'); ?>" id="appointmentDate" name="appointmentDate" class="form-control" placeholder="Date du rendez-vous" required>
                         </div>
                         <div class="form-group contact-forms">
                             <label for="appointmentTime"><p><?php echo localize('Appointment-Time'); ?></p></label>
@@ -19,8 +19,9 @@ ob_start(); ?>
                         <div class="form-group contact-forms">
                             <label for="appointmentLength"><?php echo localize('Appointment-Duration'); ?></label>
                             <select id="appointmentLength" name="appointmentLength">
-                              <option value="1:00"><?php echo localize('CreateAppointment-OneHour'); ?></option>
-                              <option value="1:30"><?php echo localize('CreateAppointment-OneHourAndHalf'); ?></option>
+                                <option disabled selected value> --:-- </option>
+                                <option value="1:00"><?php echo localize('CreateAppointment-OneHour'); ?></option>
+                                <option value="1:30"><?php echo localize('CreateAppointment-OneHourAndHalf'); ?></option>
                             </select>
                         </div>
                     </div>
@@ -41,7 +42,7 @@ ob_start(); ?>
                             <tbody>
                                 <?php
                                 $customers = CallAPI('GET', 'Customers');
-                                $count =0;
+                                $count = 0;
                                 foreach ($customers as $customer) {
                                     ?>
                                 <tr class="clickable-row" id="<?php echo $customer->id; ?>">
@@ -76,7 +77,7 @@ ob_start(); ?>
                         </table>
                     </div>
                 </div>
-                <input type="button" value='Prendre un rendez-vous' class="btn sent-butnn" id="btn_makeAppointment"></input>
+                <button type="submit" class="btn sent-butnn" value="<?php echo localize('CreateAppointment-MakeAppointment'); ?>" id="btn_makeAppointment"><?php echo localize('CreateAppointment-MakeAppointment'); ?></button>
                 <div id="submitResult"></div>
             </form>
         </div>

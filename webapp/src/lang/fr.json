@@ -92,6 +92,7 @@
   "PageTitle-NewAppointment":"Nouveau rendez-vous",
   "CreateAppointment-DetailsAppointment-Text":"Détais du rendez-vous",
   "CreateAppointment-DetailsCustomer-Text":"Sélectionnez un client",
+  "CreateAppointment-MakeAppointment":"Prendre un rendez-vous",
   "Appointment-Date":"Date",
   "Appointment-Time":"Heure",
   "Appointment-Duration":"Durée",
