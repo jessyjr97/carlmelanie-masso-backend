@@ -3,40 +3,39 @@ $titre = 'AppointmentCreation';
 ob_start(); ?>
     <section class="contact py-lg-4 py-md-3 py-sm-3 py-3">
         <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
-            <h3 class="title text-center mb-md-4 mb-sm-3 mb-3 mb-2">Nouveau rendez-vous</h3>
+            <h3 class="title text-center mb-md-4 mb-sm-3 mb-3 mb-2"><?php echo localize("PageTitle-NewAppointment") ?></h3>
             <form class="row w3pvt-info-para pt-lg-5 pt-md-4 pt-3" id="frm_newAppointment" method="post">
                 <div class="col-lg-6 col-md-6">
-                    <h4>Détails du rendez-vous</h4>
+                    <h4><?php echo localize('CreateAppointment-DetailsAppointment-Text'); ?></h4>
                     <div class="w3pvt-wls-contact-mid">
                         <div class="form-group contact-forms">
-                            <label for="appointmentDate"><p>Date</p></label>
+                            <label for="appointmentDate"><p><?php echo localize('Appointment-Date'); ?></p></label>
                             <input type="date" id="appointmentDate" name="appointmentDate" class="form-control" placeholder="Date du rendez-vous" required>
                         </div>
                         <div class="form-group contact-forms">
-                            <label for="appointmentTime"><p>Heure</p></label>
+                            <label for="appointmentTime"><p><?php echo localize('Appointment-Time'); ?></p></label>
                             <input type="time" name="appointmentTime" id="appointmentTime" class="form-control" placeholder="Heure du rendez-vous" required>
                         </div>
                         <div class="form-group contact-forms">
-                            <label for="appointmentLength">Durée</label>
-                            <input list="appointmentLengthChoices" id="appointmentLength" name="appointmentLength">
-                            <datalist id="appointmentLengthChoices">
-                              <option value="1:00">
-                              <option value="1:30">
-                            </datalist>
+                            <label for="appointmentLength"><?php echo localize('Appointment-Duration'); ?></label>
+                            <select id="appointmentLength" name="appointmentLength">
+                              <option value="1:00"><?php echo localize('CreateAppointment-OneHour'); ?></option>
+                              <option value="1:30"><?php echo localize('CreateAppointment-OneHourAndHalf'); ?></option>
+                            </select>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 ">
                     <div >
-                        <h4>Informations du client</h4>
+                        <h4><?php echo localize('CreateAppointment-DetailsCustomer-Text'); ?></h4>
                     </div>
                     <div class=" mt-3">
                         <table class="table table-sm table-hover" id="tbl_customers">
                             <thead class="thead-dark">
                                 <tr>
-                                    <th scope="col">Nom</th>
-                                    <th scope="col">Prénom</th>
-                                    <th scope="col">Téléphone</th>
+                                    <th scope="col"><?php echo localize('Appointment-Date'); ?></th>
+                                    <th scope="col"><?php echo localize('Appointment-Customer'); ?></th>
+                                    <th scope="col"><?php echo localize('Personal-Phone'); ?></th>
                                 </tr>
                             </thead>
                             <tbody>
