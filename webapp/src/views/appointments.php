@@ -23,9 +23,9 @@ ob_start();
     </thead>
     <tbody>
         <?php
-        $appointment = CallAPI('GET', 'Appointments/AppointmentsAndCustomers');
+        $appointments = CallAPI('GET', 'Appointments/AppointmentsAndCustomers');
         $count =0;
-        foreach ($appointment as $appointment) {
+        foreach ($appointments as $appointment) {
         ?>
         <tr id="<?php echo $appointment->appointment->idCustomer; ?>">
             <td scope="row">
@@ -53,7 +53,7 @@ ob_start();
                 <table style="width:100%; background-color: rgba(255,255,255,0)">
                     <tr>
                         <th><?php echo $phoneNumber->idPhoneType; ?></th>
-                        <td><?php echo $phoneNumber->phonenumber.$phoneNumber->extension; ?></td>
+                        <td><?php echo $phoneNumber->phone.$phoneNumber->extension; ?></td>
                     </tr>
                 </table>
             <?php

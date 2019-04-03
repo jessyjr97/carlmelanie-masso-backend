@@ -62,7 +62,7 @@ ob_start(); ?>
                                         <table style="width:100%; background-color: rgba(255,255,255,0)">
                                             <tr>
                                                 <th><?php //echo $phoneNumber->idPhoneType; ?></th>
-                                                <td><?php echo $phoneNumber->phonenumber.$phoneNumber->extension; ?></td>
+                                                <td><?php echo $phoneNumber->phone.$phone->extension; ?></td>
                                             </tr>
                                         </table>
                                     <?php
