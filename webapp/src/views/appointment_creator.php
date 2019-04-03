@@ -17,8 +17,8 @@ ob_start(); ?>
                             <input type="time" name="appointmentTime" id="appointmentTime" class="form-control" placeholder="Heure du rendez-vous" required>
                         </div>
                         <div class="form-group contact-forms">
-                            <label for="appointmentLength"><?php echo localize('Appointment-Duration'); ?></label>
-                            <select id="appointmentLength" name="appointmentLength">
+                            <label for="appointmentDuration"><?php echo localize('Appointment-Duration'); ?></label>
+                            <select id="appointmentDuration" name="appointmentDuration">
                                 <option disabled selected value> --:-- </option>
                                 <option value="1:00"><?php echo localize('CreateAppointment-OneHour'); ?></option>
                                 <option value="1:30"><?php echo localize('CreateAppointment-OneHourAndHalf'); ?></option>
@@ -61,7 +61,7 @@ ob_start(); ?>
                                         ?>
                                         <table style="width:100%; background-color: rgba(255,255,255,0)">
                                             <tr>
-                                                <th><?php //echo $phoneNumber->idPhoneType; ?></th>
+                                                <th><?php echo $phoneNumber->idPhoneType; ?></th>
                                                 <td><?php echo $phoneNumber->phone.$phone->extension; ?></td>
                                             </tr>
                                         </table>

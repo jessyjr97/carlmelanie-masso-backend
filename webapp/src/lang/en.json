@@ -93,7 +93,7 @@
   "CreateAppointment-MakeAppointment":"Make an appointment",
   "Appointment-Date":"Date",
   "Appointment-Time":"Time",
-  "Appointment-Duration":"Length",
+  "Appointment-Duration":"Duration",
   "Appointment-Customer":"Customer",
   "CreateAppointment-OneHour":"One hour",
   "CreateAppointment-OneHourAndHalf":"One hour thirty minutes"

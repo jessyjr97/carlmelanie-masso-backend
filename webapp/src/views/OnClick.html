@@ -12,12 +12,6 @@
   table .activeRow {
     background-color: #9c9 !important;
   }
-/*
-  .customrow:hover {
-    background-color: #e3fee0;
-    cursor: pointer;
-  }
-*/
   .col-sm {
     border: .3px solid;
   }
@@ -39,7 +33,7 @@
             } else {
                 var appointmentDate = document.getElementById('appointmentDate').value;
                 var appointmentTime = document.getElementById('appointmentTime').value;
-                var appointmentLength = document.getElementById('appointmentLength').value;
+                var appointmentDuration = document.getElementById('appointmentDuration').value;
                 if (!appointmentLength){
                     alert('Veuillez sélectionner la durée du rendez-vous');
                     $('#btn_makeAppointment').prop("disabled", false);
@@ -51,7 +45,7 @@
                         data:{
                             appointmentDate: appointmentDate,
                             appointmentTime: appointmentTime,
-                            appointmentLength: appointmentLength,
+                            appointmentDuration: appointmentDuration,
                             idCustomer: client.id
                         },
                         success:function(output) {

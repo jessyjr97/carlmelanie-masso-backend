@@ -261,7 +261,7 @@ function MakeAppointment(){
     if (isset($_POST)){
         $appointment = array(
             'AppointmentDateTime' => htmlentities($_POST['appointmentDate'].' '.$_POST['appointmentTime']),
-            'DurationTime' => htmlentities($_POST['appointmentLength']),
+            'DurationTime' => htmlentities($_POST['appointmentDuration']),
             'IdCustomer' => htmlentities($_POST['idCustomer'])
         );
         $result = CallAPI('POST', 'Appointments/CheckAppointmentIsAvailable/%23definition', json_encode($appointment));
